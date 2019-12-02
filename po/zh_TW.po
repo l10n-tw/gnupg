@@ -1,24 +1,25 @@
 # Traditional Chinese(zh-tw) messages for GnuPG
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # This file is distributed under the same license as the PACKAGE package.
-# Jedi Lin <Jedi@Jedi.org>, 2003~2013.
 #
 # Special thanks to "Audrey Tang <audreyt@audreyt.org>".
 #
+# Jedi Lin <Jedi@Jedi.org>, 2003~2013.
+# pan93412 <pan93412@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU gnupg 2.1.0\n"
 "Report-Msgid-Bugs-To: translations@gnupg.org\n"
-"PO-Revision-Date: 2017-11-02 17:42+0100\n"
-"Last-Translator: Jedi Lin <Jedi@Jedi.org>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"PO-Revision-Date: 2019-12-03 02:54+0800\n"
+"Last-Translator: pan93412 <pan93412@gmail.com>\n"
+"Language-Team: Chinese <chinese-l10n@googlegroups.com>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: gnupg-2.1.0/\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Lokalize 19.11.90\n"
 
 #, c-format
 msgid "failed to acquire the pinentry lock: %s\n"
@@ -31,10 +32,10 @@ msgstr "個人識別碼項目鎖定獲取失敗: %s\n"
 #. * used as an accelerator.  Double the underscore to have
 #. * pinentry display a literal underscore.
 msgid "|pinentry-label|_OK"
-msgstr "|pinentry-label|_OK"
+msgstr "|pinentry-label|確定(_O)"
 
 msgid "|pinentry-label|_Cancel"
-msgstr "|pinentry-label|取消 (_C)"
+msgstr "|pinentry-label|取消(_C)"
 
 #, fuzzy
 #| msgid "|pinentry-label|_OK"
@@ -60,7 +61,7 @@ msgid "Do you really want to make your passphrase visible on the screen?"
 msgstr "你是否真的想要永久刪除 OpenPGP 私鑰:"
 
 msgid "|pinentry-tt|Make passphrase visible"
-msgstr ""
+msgstr "|pinentry-tt|顯示出密語"
 
 #, fuzzy
 #| msgid "Enter new passphrase"
@@ -80,8 +81,8 @@ msgstr "優劣程度: %s"
 #. will be used.
 msgid "pinentry.qualitybar.tooltip"
 msgstr ""
-"上列輸入文字的優劣程度.\n"
-"關於此規範的細節, 請洽你的系統管理者."
+"上列輸入文字的優劣程度。\n"
+"關於此規範的細節，請洽你的系統管理者。"
 
 msgid ""
 "Please enter your PIN, so that the secret key can be unlocked for this "
@@ -94,7 +95,7 @@ msgid ""
 msgstr "請輸入你的密語以便在此階段作業中解開私鑰"
 
 msgid "PIN:"
-msgstr ""
+msgstr "PIN:"
 
 msgid "Passphrase:"
 msgstr "密語:"
@@ -167,8 +168,7 @@ msgstr "取得已存放的旗標時出錯: %s\n"
 msgid ""
 "An ssh process requested the use of key%%0A  %s%%0A  (%s)%%0ADo you want to "
 "allow this?"
-msgstr ""
-"有某個 ssh 程序提出使用金鑰 %%0A  %s%%0A  (%s)%%0A 之請求, 請問是否允許?"
+msgstr "有某個 ssh 程序提出使用金鑰 %%0A  %s%%0A  (%s)%%0A 之請求, 請問是否允許?"
 
 msgid "Allow"
 msgstr "允許"
@@ -187,8 +187,7 @@ msgstr "請再次輸入密語"
 msgid ""
 "Please enter a passphrase to protect the received secret key%%0A   %s%%0A   "
 "%s%%0Awithin gpg-agent's key storage"
-msgstr ""
-"請輸入密語以保護收到的私鑰 %%0A   %s%%0A   %s%%0A 於 gpg-agent 的金鑰存放處"
+msgstr "請輸入密語以保護收到的私鑰 %%0A   %s%%0A   %s%%0A 於 gpg-agent 的金鑰存放處"
 
 #, c-format
 msgid "failed to create stream from socket: %s\n"
@@ -374,7 +373,7 @@ msgid "disallow caller to override the pinentry"
 msgstr ""
 
 msgid "allow passphrase to be prompted through Emacs"
-msgstr ""
+msgstr "允許密語透過 Emacs 提示"
 
 msgid "enable ssh support"
 msgstr "啟用 ssh 支援"
@@ -5465,8 +5464,7 @@ msgid ""
 "key %s was created %lu second in the future (time warp or clock problem)\n"
 msgid_plural ""
 "key %s was created %lu seconds in the future (time warp or clock problem)\n"
-msgstr[0] ""
-"金鑰 %s 已經在 %lu 秒後的未來製妥 (可能是因為時光旅行或時鐘的問題)\n"
+msgstr[0] "金鑰 %s 已經在 %lu 秒後的未來製妥 (可能是因為時光旅行或時鐘的問題)\n"
 
 #, fuzzy, c-format
 #| msgid ""
@@ -5474,8 +5472,7 @@ msgstr[0] ""
 msgid "key %s was created %lu day in the future (time warp or clock problem)\n"
 msgid_plural ""
 "key %s was created %lu days in the future (time warp or clock problem)\n"
-msgstr[0] ""
-"金鑰 %s 已經在 %lu 秒後的未來製妥 (可能是因為時光旅行或時鐘的問題)\n"
+msgstr[0] "金鑰 %s 已經在 %lu 秒後的未來製妥 (可能是因為時光旅行或時鐘的問題)\n"
 
 #, c-format
 msgid "Note: signature key %s expired %s\n"
