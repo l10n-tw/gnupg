@@ -24,12 +24,12 @@ msgstr ""
 msgid "failed to acquire the pinentry lock: %s\n"
 msgstr "個人識別碼項目鎖定獲取失敗: %s\n"
 
-#. TRANSLATORS: These are labels for buttons etc used in
-#. Pinentries.  An underscore indicates that the next letter
-#. should be used as an accelerator.  Double the underscore for
-#. a literal one.  The actual to be translated text starts after
-#. the second vertical bar.  Note that gpg-agent has been set to
-#. utf-8 so that the strings are in the expected encoding.
+#. TRANSLATORS: These are labels for buttons etc as used in
+#. * Pinentries.  In your translation copy the text before the
+#. * second vertical bar verbatim; translate only the following
+#. * text.  An underscore indicates that the next letter should be
+#. * used as an accelerator.  Double the underscore to have
+#. * pinentry display a literal underscore.
 msgid "|pinentry-label|_OK"
 msgstr "|pinentry-label|_OK"
 
@@ -197,9 +197,6 @@ msgstr "從 socket 建立串流失敗: %s\n"
 msgid "Please insert the card with serial number"
 msgstr "請插入下列序號的卡片:"
 
-msgid "Please remove the current card and insert the one with serial number"
-msgstr "請移除現用中的卡片並插入下列序號的卡片:"
-
 msgid "Admin PIN"
 msgstr "管理者個人識別碼 (PIN)"
 
@@ -211,8 +208,12 @@ msgstr "PIN 重設碼 (PUK)"
 msgid "Reset Code"
 msgstr "重設碼"
 
-#, c-format
-msgid "%s%%0A%%0AUse the reader's pinpad for input."
+msgid "Push ACK button on card/token."
+msgstr ""
+
+#, fuzzy
+#| msgid "%s%%0A%%0AUse the reader's pinpad for input."
+msgid "Use the reader's pinpad for input."
 msgstr "%s%%0A%%0A使用讀卡機的鍵盤來輸入."
 
 msgid "Repeat this Reset Code"
@@ -248,9 +249,6 @@ msgstr "寫入暫存檔時出錯: %s\n"
 msgid "Enter new passphrase"
 msgstr "請輸入新密語"
 
-msgid "Take this one anyway"
-msgstr "無論如何還是要用這個"
-
 #, c-format
 msgid ""
 "You have not entered a passphrase!%0AAn empty passphrase is not allowed."
@@ -285,6 +283,9 @@ msgstr "密語不得含有已知的詞彙, 亦不得與%%0A確知的模式吻合
 
 msgid "Warning: You have entered an insecure passphrase."
 msgstr "警告: 你輸入了不安全的密語."
+
+msgid "Take this one anyway"
+msgstr "無論如何還是要用這個"
 
 #, c-format
 msgid "Please enter the passphrase to%0Aprotect your new key"
@@ -404,6 +405,7 @@ msgstr ""
 msgid "invalid debug-level '%s' given\n"
 msgstr "給定的除錯等級 '%s' 無效\n"
 
+#, c-format
 msgid "selected digest algorithm is invalid\n"
 msgstr "所選的摘要演算法無效\n"
 
@@ -431,9 +433,11 @@ msgstr "無法建立 socket: %s\n"
 msgid "socket name '%s' is too long\n"
 msgstr "socket 名稱 '%s' 太長\n"
 
+#, c-format
 msgid "a gpg-agent is already running - not starting a new one\n"
 msgstr "已經有一份 gpg-agent 在執行了 - 不會再啟動一份新的\n"
 
+#, c-format
 msgid "error getting nonce for the socket\n"
 msgstr "為 socket 取得 nonce 時出錯\n"
 
@@ -494,6 +498,7 @@ msgstr "npth_select 失敗: %s - 等 1 秒鐘\n"
 msgid "%s %s stopped\n"
 msgstr "%s %s 已停止\n"
 
+#, c-format
 msgid "no gpg-agent running in this session\n"
 msgstr "在此階段中沒有執行中的 gpg-agent\n"
 
@@ -551,6 +556,7 @@ msgstr ""
 "請輸入完成這項操作所需的\n"
 "密語或個人識別碼 (PIN)."
 
+#, c-format
 msgid "cancelled\n"
 msgstr "已取消\n"
 
@@ -586,6 +592,7 @@ msgstr "無效的金鑰旗標於 '%s', 第 %d 列\n"
 msgid "error reading '%s', line %d: %s\n"
 msgstr "讀取 '%s' 時出錯, 第 %d 列: %s\n"
 
+#, c-format
 msgid "error reading list of trusted root certificates\n"
 msgstr "讀取已信任根憑證清單時出錯\n"
 
@@ -665,6 +672,7 @@ msgstr ""
 "警告: 這把金鑰同時列為 SSH 所使用!\n"
 "刪除這把金鑰可能會讓你失去存取遠端機器的能力."
 
+#, c-format
 msgid "DSA requires the hash length to be a multiple of 8 bits\n"
 msgstr "DSA 需要 8 位元倍數的雜湊長度\n"
 
@@ -680,6 +688,7 @@ msgstr "%zu 位元的雜湊對 %u 位元的 %s 金鑰無效\n"
 msgid "checking created signature failed: %s\n"
 msgstr "檢查已建立的簽章時出錯: %s\n"
 
+#, c-format
 msgid "secret key parts are not available\n"
 msgstr "私鑰部分無法取用\n"
 
@@ -736,6 +745,7 @@ msgstr "取得 %d 執行程序結束碼時出錯: %s\n"
 msgid "can't connect to '%s': %s\n"
 msgstr "無法連接至 '%s': %s\n"
 
+#, c-format
 msgid "problem setting the gpg-agent options\n"
 msgstr "設定 gpg-agent 選項時發生問題\n"
 
@@ -820,31 +830,41 @@ msgid "unknown debug flag '%s' ignored\n"
 msgstr ""
 
 #, c-format
-msgid "no running gpg-agent - starting '%s'\n"
-msgstr "沒有執行中的 gpg-agent - 正在啟動 '%s'\n"
+msgid "waiting for the dirmngr to come up ... (%ds)\n"
+msgstr "正在等候 dirmngr 出現 ... (%d 秒)\n"
+
+#, fuzzy, c-format
+#| msgid "waiting for the agent to come up ... (%ds)\n"
+msgid "waiting for the keyboxd to come up ... (%ds)\n"
+msgstr "正在等候代理程式出現 ... (%d 秒)\n"
 
 #, c-format
 msgid "waiting for the agent to come up ... (%ds)\n"
 msgstr "正在等候代理程式出現 ... (%d 秒)\n"
 
-msgid "connection to agent established\n"
-msgstr "至代理程式的連線已建立\n"
-
-#, fuzzy
-#| msgid "connection to agent established\n"
-msgid "connection to agent is in restricted mode\n"
-msgstr "至代理程式的連線已建立\n"
-
 #, c-format
-msgid "no running Dirmngr - starting '%s'\n"
-msgstr "沒有執行中的 Dirmngr - 正在啟動 '%s'\n"
-
-#, c-format
-msgid "waiting for the dirmngr to come up ... (%ds)\n"
-msgstr "正在等候 dirmngr 出現 ... (%d 秒)\n"
-
 msgid "connection to the dirmngr established\n"
 msgstr "連線至 dirmngr 已建立\n"
+
+#, fuzzy, c-format
+#| msgid "connection to the dirmngr established\n"
+msgid "connection to the keyboxd established\n"
+msgstr "連線至 dirmngr 已建立\n"
+
+#, fuzzy, c-format
+#| msgid "connection to agent established\n"
+msgid "connection to the agent established\n"
+msgstr "至代理程式的連線已建立\n"
+
+#, fuzzy, c-format
+#| msgid "no running Dirmngr - starting '%s'\n"
+msgid "no running %s - starting '%s'\n"
+msgstr "沒有執行中的 Dirmngr - 正在啟動 '%s'\n"
+
+#, fuzzy, c-format
+#| msgid "connection to agent established\n"
+msgid "connection to the agent is in restricted mode\n"
+msgstr "至代理程式的連線已建立\n"
 
 #. TRANSLATORS: Copy the prefix between the vertical bars
 #. verbatim.  It will not be printed.
@@ -1044,6 +1064,7 @@ msgstr "\"%.50s\" 選項不明確\n"
 msgid "command \"%.50s\" is ambiguous\n"
 msgstr "\"%.50s\" 指令不明確\n"
 
+#, c-format
 msgid "out of core\n"
 msgstr "超出核心\n"
 
@@ -1098,24 +1119,31 @@ msgstr "%s 太舊了 (需要 %s, 但是祇有 %s)\n"
 msgid "armor: %s\n"
 msgstr "封裝: %s\n"
 
+#, c-format
 msgid "invalid armor header: "
 msgstr "無效的封裝檔頭: "
 
+#, c-format
 msgid "armor header: "
 msgstr "封裝檔頭: "
 
+#, c-format
 msgid "invalid clearsig header\n"
 msgstr "無效的明文簽章檔頭\n"
 
+#, c-format
 msgid "unknown armor header: "
 msgstr "未知的封裝檔頭: "
 
+#, c-format
 msgid "nested clear text signatures\n"
 msgstr "多層明文簽章\n"
 
+#, c-format
 msgid "unexpected armor: "
 msgstr "未預期的封裝: "
 
+#, c-format
 msgid "invalid dash escaped line: "
 msgstr "無效的破折號逸出列: "
 
@@ -1123,12 +1151,15 @@ msgstr "無效的破折號逸出列: "
 msgid "invalid radix64 character %02X skipped\n"
 msgstr "無效的 64 進位字符 %02x 已跳過\n"
 
+#, c-format
 msgid "premature eof (no CRC)\n"
 msgstr "檔案未預期的結束 (沒有 CRC 的部分)\n"
 
+#, c-format
 msgid "premature eof (in CRC)\n"
 msgstr "檔案未預期的結束 (CRC 的部分未結束)\n"
 
+#, c-format
 msgid "malformed CRC\n"
 msgstr "格式不對的 CRC\n"
 
@@ -1136,12 +1167,15 @@ msgstr "格式不對的 CRC\n"
 msgid "CRC error; %06lX - %06lX\n"
 msgstr "CRC 錯誤; %06lX - %06lX\n"
 
+#, c-format
 msgid "premature eof (in trailer)\n"
 msgstr "檔案未預期的結束 (於結尾處)\n"
 
+#, c-format
 msgid "error in trailer line\n"
 msgstr "結尾列有問題\n"
 
+#, c-format
 msgid "no valid OpenPGP data found.\n"
 msgstr "找不到有效的 OpenPGP 資料.\n"
 
@@ -1149,6 +1183,7 @@ msgstr "找不到有效的 OpenPGP 資料.\n"
 msgid "invalid armor: line longer than %d characters\n"
 msgstr "無效的封裝: 列長超出 %d 字符\n"
 
+#, c-format
 msgid ""
 "quoted printable character in armor - probably a buggy MTA has been used\n"
 msgstr "封裝裡出現被引號括住的可列印字符 - 可能是有瑕疵的送信程式造成的\n"
@@ -1158,32 +1193,37 @@ msgstr "封裝裡出現被引號括住的可列印字符 - 可能是有瑕疵的
 msgid "[ not human readable (%zu bytes: %s%s) ]"
 msgstr "不是人類能讀得懂的"
 
+#, c-format
 msgid ""
 "a notation name must have only printable characters or spaces, and end with "
 "an '='\n"
 msgstr "標記名稱一定要採用可印出的字符或空白, 並以一個 '=' 來結尾\n"
 
+#, c-format
 msgid "a user notation name must contain the '@' character\n"
 msgstr "使用者標記名稱一定要含有 '@' 字符\n"
 
+#, c-format
 msgid "a notation name must not contain more than one '@' character\n"
 msgstr "使用者標記名稱不得含有兩個或更多的 '@' 字符\n"
 
+#, c-format
 msgid "a notation value must not use any control characters\n"
 msgstr "標記值一定不能使用任何的控制字符\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "a notation name must not contain more than one '@' character\n"
 msgid "a notation name may not contain an '=' character\n"
 msgstr "使用者標記名稱不得含有兩個或更多的 '@' 字符\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid ""
 #| "a notation name must have only printable characters or spaces, and end "
 #| "with an '='\n"
 msgid "a notation name must have only printable characters or spaces\n"
 msgstr "標記名稱一定要採用可印出的字符或空白, 並以一個 '=' 來結尾\n"
 
+#, c-format
 msgid "WARNING: invalid notation data found\n"
 msgstr "警告: 找到無效的標記資料\n"
 
@@ -1208,6 +1248,7 @@ msgstr ""
 msgid "WARNING: %s\n"
 msgstr "警告: %s 會推翻 %s\n"
 
+#, c-format
 msgid "Note: Outdated servers may lack important security fixes.\n"
 msgstr ""
 
@@ -1222,6 +1263,10 @@ msgid "%s is not compliant with %s mode\n"
 msgstr "%s 還沒辦法跟 %s 一起運作\n"
 
 #, c-format
+msgid "problem with the agent: %s\n"
+msgstr "代理程式的問題: %s\n"
+
+#, c-format
 msgid "OpenPGP card not available: %s\n"
 msgstr "沒有可用的 OpenPGP 卡片: %s\n"
 
@@ -1229,12 +1274,15 @@ msgstr "沒有可用的 OpenPGP 卡片: %s\n"
 msgid "OpenPGP card no. %s detected\n"
 msgstr "偵測到 OpenPGP 卡片編號 %s\n"
 
+#, c-format
 msgid "can't do this in batch mode\n"
 msgstr "無法在批次模式中這樣做\n"
 
+#, c-format
 msgid "This command is only available for version 2 cards\n"
 msgstr "祇有第二版卡片纔能用這個指令\n"
 
+#, c-format
 msgid "Reset Code not or not anymore available\n"
 msgstr "(再也) 沒有重設碼\n"
 
@@ -1244,14 +1292,11 @@ msgstr "你要選哪一個? "
 msgid "[not set]"
 msgstr "[未設定]"
 
-msgid "male"
-msgstr "男性"
+msgid "Mr."
+msgstr ""
 
-msgid "female"
-msgstr "女性"
-
-msgid "unspecified"
-msgstr "未特定"
+msgid "Ms."
+msgstr ""
 
 msgid "not forced"
 msgstr "不強迫使用"
@@ -1298,14 +1343,16 @@ msgstr "私人的 DO 資料: "
 msgid "Language preferences: "
 msgstr "介面語言偏好設定: "
 
+#, c-format
 msgid "Error: invalid length of preference string.\n"
 msgstr "錯誤: 無效的偏好設定字串長度\n"
 
+#, c-format
 msgid "Error: invalid characters in preference string.\n"
 msgstr "錯誤: 偏好設定字串中含有無效的字符\n"
 
-msgid "Sex ((M)ale, (F)emale or space): "
-msgstr "性別 ((M)男性, (F)女性或留空): "
+msgid "Salutation (M = Mr., F = Ms., or space): "
+msgstr ""
 
 msgid "Error: invalid response.\n"
 msgstr "錯誤: 無效的回應.\n"
@@ -1313,6 +1360,7 @@ msgstr "錯誤: 無效的回應.\n"
 msgid "CA fingerprint: "
 msgstr "憑證中心 (CA) 指紋: "
 
+#, c-format
 msgid "Error: invalid formatted fingerprint.\n"
 msgstr "錯誤: 無效的格式化指紋.\n"
 
@@ -1330,10 +1378,16 @@ msgstr "取得現用金鑰資訊時出錯: %s\n"
 msgid "Replace existing key? (y/N) "
 msgstr "是否要取代既有的金鑰? (y/N) "
 
+#, fuzzy
+#| msgid ""
+#| "Note: There is no guarantee that the card supports the requested size.\n"
+#| "      If the key generation does not succeed, please check the\n"
+#| "      documentation of your card to see what sizes are allowed.\n"
 msgid ""
-"Note: There is no guarantee that the card supports the requested size.\n"
-"      If the key generation does not succeed, please check the\n"
-"      documentation of your card to see what sizes are allowed.\n"
+"Note: There is no guarantee that the card supports the requested\n"
+"      key type or size.  If the key generation does not succeed,\n"
+"      please check the documentation of your card to see which\n"
+"      key types and sizes are supported.\n"
 msgstr ""
 "請注意: 我們完全無法保證卡片支援你想用的尺寸.\n"
 "      如果金鑰產生失敗了, 煩請查閱你卡片上的文件,\n"
@@ -1403,7 +1457,7 @@ msgstr "將金鑰 %d 尺寸變更至 %u 位元時出錯: %s\n"
 msgid "error getting card info: %s\n"
 msgstr "取得現用金鑰資訊時出錯: %s\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "This command is not allowed while in %s mode.\n"
 msgid "This command is not supported by this card\n"
 msgstr "在 %s 模式中不允許使用這個指令.\n"
@@ -1411,6 +1465,7 @@ msgstr "在 %s 模式中不允許使用這個指令.\n"
 msgid "Make off-card backup of encryption key? (Y/n) "
 msgstr "是否要為加密用金鑰建立卡外備份? (Y/n) "
 
+#, c-format
 msgid "Note: keys are already stored on the card!\n"
 msgstr "請注意: 金鑰已經存放在卡片上了!\n"
 
@@ -1446,7 +1501,7 @@ msgstr "請選擇要把金鑰存放在哪裡:\n"
 msgid "KEYTOCARD failed: %s\n"
 msgstr "KEYTOCARD 失敗: %s\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "Note: keys are already stored on the card!\n"
 msgid "Note: This command destroys all keys stored on the card!\n"
 msgstr "請注意: 金鑰已經存放在卡片上了!\n"
@@ -1462,6 +1517,11 @@ msgstr ""
 #, fuzzy, c-format
 #| msgid "error closing %s: %s\n"
 msgid "error for setup KDF: %s\n"
+msgstr "關閉 %s 時出錯: %s\n"
+
+#, fuzzy, c-format
+#| msgid "error closing %s: %s\n"
+msgid "error for setup UIF: %s\n"
 msgstr "關閉 %s 時出錯: %s\n"
 
 msgid "quit this menu"
@@ -1491,7 +1551,9 @@ msgstr "變更登入名稱"
 msgid "change the language preferences"
 msgstr "變更介面語言偏好設定"
 
-msgid "change card holder's sex"
+#, fuzzy
+#| msgid "change card holder's sex"
+msgid "change card holder's salutation"
 msgstr "變更卡片持有者的性別"
 
 msgid "change a CA fingerprint"
@@ -1517,12 +1579,17 @@ msgstr ""
 
 #, fuzzy
 #| msgid "|NAME|use user NAME for authentication"
-msgid "setup KDF for PIN authentication"
+msgid "setup KDF for PIN authentication (on/single/off)"
 msgstr "|名字|使用指定名字做為認證用的使用者名稱"
 
 #, fuzzy
 #| msgid "change the ownertrust"
 msgid "change the key attribute"
+msgstr "更改主觀信任"
+
+#, fuzzy
+#| msgid "change the ownertrust"
+msgid "change the User Interaction Flag"
 msgstr "更改主觀信任"
 
 msgid "gpg/card> "
@@ -1537,9 +1604,11 @@ msgstr "允許使用管理者指令\n"
 msgid "Admin commands are not allowed\n"
 msgstr "未允許使用管理者指令\n"
 
+#, c-format
 msgid "Invalid command  (try \"help\")\n"
 msgstr "無效的指令  (試試看 \"help\")\n"
 
+#, c-format
 msgid "--output doesn't work for this command\n"
 msgstr "--output 在這個指令中沒有作用\n"
 
@@ -1560,11 +1629,25 @@ msgstr "讀取金鑰區塊時出錯: %s\n"
 msgid "key \"%s\" not found\n"
 msgstr "找不到金鑰 \"%s\": %s\n"
 
+#, c-format
 msgid "(unless you specify the key by fingerprint)\n"
 msgstr "(除非你用指紋指定了金鑰)\n"
 
+#, c-format
 msgid "can't do this in batch mode without \"--yes\"\n"
 msgstr "沒有 \"--yes\" 就沒辦法在批次模式中這麼做\n"
+
+msgid "Note: The public primary key and all its subkeys will be deleted.\n"
+msgstr ""
+
+msgid "Note: Only the shown public subkey will be deleted.\n"
+msgstr ""
+
+msgid "Note: Only the secret part of the shown primary key will be deleted.\n"
+msgstr ""
+
+msgid "Note: Only the secret part of the shown subkey will be deleted.\n"
+msgstr ""
 
 msgid "Delete this key from the keyring? (y/N) "
 msgstr "要從鑰匙圈裡刪除這把金鑰嗎? (y/N) "
@@ -1583,9 +1666,14 @@ msgid "subkey"
 msgstr "子鑰"
 
 #, c-format
+msgid "update failed: %s\n"
+msgstr "更新失敗: %s\n"
+
+#, c-format
 msgid "deleting keyblock failed: %s\n"
 msgstr "刪除金鑰區塊時失敗: %s\n"
 
+#, c-format
 msgid "ownertrust information cleared\n"
 msgstr "主觀信任資訊已清除\n"
 
@@ -1593,6 +1681,7 @@ msgstr "主觀信任資訊已清除\n"
 msgid "there is a secret key for public key \"%s\"!\n"
 msgstr "公鑰 \"%s\" 有相對應的私鑰!\n"
 
+#, c-format
 msgid "use option \"--delete-secret-keys\" to delete it first.\n"
 msgstr "請先以 \"--delete-secret-keys\" 選項來刪除它.\n"
 
@@ -1600,11 +1689,13 @@ msgstr "請先以 \"--delete-secret-keys\" 選項來刪除它.\n"
 msgid "error creating passphrase: %s\n"
 msgstr "建立密語時出錯: %s\n"
 
+#, c-format
 msgid "can't use a symmetric ESK packet due to the S2K mode\n"
 msgstr "因處於 S2K 模式下而無法使用對稱式 ESK 封包\n"
 
-#, c-format
-msgid "using cipher %s\n"
+#, fuzzy, c-format
+#| msgid "using cipher %s\n"
+msgid "using cipher %s.%s\n"
 msgstr "正在使用 %s 編密法\n"
 
 #, c-format
@@ -1644,8 +1735,9 @@ msgstr "警告: 強迫使用 %s (%d) 壓縮演算法會違反收件者偏好設�
 msgid "forcing symmetric cipher %s (%d) violates recipient preferences\n"
 msgstr "強迫使用 %s (%d) 對稱式編密法會違反收件者偏好設定\n"
 
-#, c-format
-msgid "%s/%s encrypted for: \"%s\"\n"
+#, fuzzy, c-format
+#| msgid "%s/%s encrypted for: \"%s\"\n"
+msgid "%s/%s.%s encrypted for: \"%s\"\n"
 msgstr "%s/%s 已加密給: \"%s\"\n"
 
 #, fuzzy, c-format
@@ -1653,60 +1745,23 @@ msgstr "%s/%s 已加密給: \"%s\"\n"
 msgid "option '%s' may not be used in %s mode\n"
 msgstr "你不能夠將 %s 用於 %s 模式中\n"
 
-#, c-format
-msgid "%s encrypted data\n"
+#, fuzzy, c-format
+#| msgid "%s encrypted data\n"
+msgid "%s.%s encrypted data\n"
 msgstr "%s 已加密的資料\n"
 
 #, c-format
 msgid "encrypted with unknown algorithm %d\n"
 msgstr "以 %d 未知演算法所加密\n"
 
+#, c-format
 msgid ""
 "WARNING: message was encrypted with a weak key in the symmetric cipher.\n"
 msgstr "警告: 訊息已用對稱式編密法的弱金鑰加密了.\n"
 
+#, c-format
 msgid "problem handling encrypted packet\n"
 msgstr "處理已加密封包有問題\n"
-
-msgid "no remote program execution supported\n"
-msgstr "沒有支援的遠端程式執行\n"
-
-msgid ""
-"external program calls are disabled due to unsafe options file permissions\n"
-msgstr "因為不安全的檔案權限選項, 而禁用了外部程式叫用\n"
-
-msgid "this platform requires temporary files when calling external programs\n"
-msgstr "在這個作業平台上叫用外部程式時需要暫存檔\n"
-
-#, c-format
-msgid "unable to execute program '%s': %s\n"
-msgstr "無法執行程式 '%s': %s\n"
-
-#, c-format
-msgid "unable to execute shell '%s': %s\n"
-msgstr "無法執行 shell '%s': %s\n"
-
-#, c-format
-msgid "system error while calling external program: %s\n"
-msgstr "叫用外部程式時發生系統錯誤: %s\n"
-
-msgid "unnatural exit of external program\n"
-msgstr "外部程式不自然地離開\n"
-
-msgid "unable to execute external program\n"
-msgstr "無法執行外部程式\n"
-
-#, c-format
-msgid "unable to read external program response: %s\n"
-msgstr "無法讀取外部程式回應: %s\n"
-
-#, c-format
-msgid "WARNING: unable to remove tempfile (%s) '%s': %s\n"
-msgstr "警告: 無法移除暫存檔 (%s) '%s': %s\n"
-
-#, c-format
-msgid "WARNING: unable to remove temp directory '%s': %s\n"
-msgstr "警告: 無法移除暫存目錄 '%s': %s\n"
 
 msgid "export signatures that are marked as local-only"
 msgstr "匯出標記為僅限本機使用的簽章"
@@ -1723,6 +1778,9 @@ msgstr "匯出時從金鑰中移除無法使用的部分"
 msgid "remove as much as possible from key during export"
 msgstr "匯出時盡可能地從金鑰中移除"
 
+msgid "Do not export user id or attribute packets"
+msgstr ""
+
 msgid "use the GnuPG key backup format"
 msgstr ""
 
@@ -1737,6 +1795,7 @@ msgstr "正在寫入 '%s'\n"
 msgid "key %s: key material on-card - skipped\n"
 msgstr "金鑰 %s: 金鑰資料在卡片上 - 已跳過\n"
 
+#, c-format
 msgid "exporting secret keys not allowed\n"
 msgstr "不允許匯出私鑰\n"
 
@@ -1744,6 +1803,7 @@ msgstr "不允許匯出私鑰\n"
 msgid "key %s: PGP 2.x style key - skipped\n"
 msgstr "金鑰 %s: PGP 2.x 型態的金鑰 - 已跳過\n"
 
+#, c-format
 msgid "WARNING: nothing exported\n"
 msgstr "警告: 沒有匯出任何東西\n"
 
@@ -1753,25 +1813,6 @@ msgstr "建立 '%s' 時出錯: %s\n"
 
 msgid "[User ID not found]"
 msgstr "[找不到使用者 ID]"
-
-#, fuzzy, c-format
-#| msgid "missing argument for option \"%.50s\"\n"
-msgid "(check argument of option '%s')\n"
-msgstr "\"%.50s\" 選項遺失了引數\n"
-
-#, c-format
-msgid "Warning: '%s' should be a long key ID or a fingerprint\n"
-msgstr ""
-
-#, fuzzy, c-format
-#| msgid "error closing %s: %s\n"
-msgid "error looking up: %s\n"
-msgstr "關閉 %s 時出錯: %s\n"
-
-#, fuzzy, c-format
-#| msgid "error creating keyring '%s': %s\n"
-msgid "Warning: %s appears in the keyring %d times\n"
-msgstr "建立鑰匙圈 '%s' 時出錯: %s\n"
 
 #, c-format
 msgid "automatically retrieved '%s' via %s\n"
@@ -1785,8 +1826,17 @@ msgid "No fingerprint"
 msgstr "沒有指紋"
 
 #, c-format
+msgid "checking for a fresh copy of an expired key via %s\n"
+msgstr ""
+
+#, c-format
 msgid "secret key \"%s\" not found: %s\n"
 msgstr "找不到私鑰 \"%s\": %s\n"
+
+#, fuzzy, c-format
+#| msgid "missing argument for option \"%.50s\"\n"
+msgid "(check argument of option '%s')\n"
+msgstr "\"%.50s\" 選項遺失了引數\n"
 
 #, fuzzy, c-format
 #| msgid "|NAME|use NAME as default secret key"
@@ -2039,6 +2089,7 @@ msgstr "壓縮: "
 msgid "usage: %s [options] %s\n"
 msgstr "用法: %s [選項] %s\n"
 
+#, c-format
 msgid "conflicting commands\n"
 msgstr "指令彼此矛盾\n"
 
@@ -2141,6 +2192,7 @@ msgstr "列出簽章時顯示有效期限"
 msgid "unknown TOFU policy '%s'\n"
 msgstr "未知的選項 '%s'\n"
 
+#, c-format
 msgid "(use \"help\" to list choices)\n"
 msgstr ""
 
@@ -2174,6 +2226,7 @@ msgstr "選項 \"%.50s\" 的引數無效\n"
 msgid "'%s' is not a valid character set\n"
 msgstr "'%s' 不是有效的字元集\n"
 
+#, c-format
 msgid "could not parse keyserver URL\n"
 msgstr "無法剖析金鑰伺服器 URL\n"
 
@@ -2181,6 +2234,7 @@ msgstr "無法剖析金鑰伺服器 URL\n"
 msgid "%s:%d: invalid keyserver options\n"
 msgstr "%s:%d: 無效的金鑰伺服器選項\n"
 
+#, c-format
 msgid "invalid keyserver options\n"
 msgstr "無效的金鑰伺服器選項\n"
 
@@ -2188,6 +2242,7 @@ msgstr "無效的金鑰伺服器選項\n"
 msgid "%s:%d: invalid import options\n"
 msgstr "%s:%d: 無效的匯入選項\n"
 
+#, c-format
 msgid "invalid import options\n"
 msgstr "無效的匯入選項\n"
 
@@ -2200,6 +2255,7 @@ msgstr "無效的清單選項\n"
 msgid "%s:%d: invalid export options\n"
 msgstr "%s:%d: 無效的匯出選項\n"
 
+#, c-format
 msgid "invalid export options\n"
 msgstr "無效的匯出選項\n"
 
@@ -2207,6 +2263,7 @@ msgstr "無效的匯出選項\n"
 msgid "%s:%d: invalid list options\n"
 msgstr "%s:%d: 無效的清單選項\n"
 
+#, c-format
 msgid "invalid list options\n"
 msgstr "無效的清單選項\n"
 
@@ -2247,6 +2304,7 @@ msgstr "提高對持有有效 PKA 資料之簽章的信任"
 msgid "%s:%d: invalid verify options\n"
 msgstr "%s:%d: 無效的驗證選項\n"
 
+#, c-format
 msgid "invalid verify options\n"
 msgstr "無效的驗證選項\n"
 
@@ -2258,9 +2316,11 @@ msgstr "無法把執行檔路徑設成 %s\n"
 msgid "%s:%d: invalid auto-key-locate list\n"
 msgstr "%s:%d: 無效的自動金鑰定址清單\n"
 
+#, c-format
 msgid "invalid auto-key-locate list\n"
 msgstr "無效的自動金鑰定址清單\n"
 
+#, c-format
 msgid "WARNING: program may create a core file!\n"
 msgstr "警告: 程式可能會傾印出核心檔!\n"
 
@@ -2276,6 +2336,7 @@ msgstr "%s 不允許跟 %s 併用!\n"
 msgid "%s makes no sense with %s!\n"
 msgstr "%s 跟 %s 放在一起沒有意義!\n"
 
+#, c-format
 msgid "WARNING: running with faked system time: "
 msgstr "警告: 正在偽造的系統時間中執行: "
 
@@ -2283,51 +2344,85 @@ msgstr "警告: 正在偽造的系統時間中執行: "
 msgid "will not run with insecure memory due to %s\n"
 msgstr "因為 %s 而不會在不安全的記憶體中執行\n"
 
+#, c-format
 msgid "selected cipher algorithm is invalid\n"
 msgstr "所選的編密演算法無效\n"
 
+#, fuzzy, c-format
+#| msgid "selected digest algorithm is invalid\n"
+msgid "selected AEAD algorithm is invalid\n"
+msgstr "所選的摘要演算法無效\n"
+
+#, c-format
 msgid "selected compression algorithm is invalid\n"
 msgstr "所選的壓縮演算法無效\n"
 
+#, c-format
 msgid "selected certification digest algorithm is invalid\n"
 msgstr "所選的憑證摘要演算法無效\n"
 
+#, c-format
 msgid "completes-needed must be greater than 0\n"
 msgstr "completes-needed 一定要大於 0\n"
 
+#, c-format
 msgid "marginals-needed must be greater than 1\n"
 msgstr "marginals-needed 一定要大於 1\n"
 
+#, c-format
 msgid "max-cert-depth must be in the range from 1 to 255\n"
 msgstr "max-cert-depth 一定要介於 1 和 255 之間\n"
 
+#, c-format
 msgid "invalid default-cert-level; must be 0, 1, 2, or 3\n"
 msgstr "無效的 default-cert-level; 一定要是 0, 1, 2 或 3\n"
 
+#, c-format
 msgid "invalid min-cert-level; must be 1, 2, or 3\n"
 msgstr "無效的 min-cert-level; 一定要是 1, 2 或 3\n"
 
+#, c-format
 msgid "Note: simple S2K mode (0) is strongly discouraged\n"
 msgstr "請注意: 強烈不建議使用單純 S2K 模式 (0)\n"
 
+#, c-format
 msgid "invalid S2K mode; must be 0, 1 or 3\n"
 msgstr "無效的 S2K 模式; 一定要是 0, 1 或 3\n"
 
+#, c-format
 msgid "invalid default preferences\n"
 msgstr "無效的預設偏好\n"
 
+#, c-format
 msgid "invalid personal cipher preferences\n"
 msgstr "無效的個人編密法偏好\n"
 
+#, fuzzy, c-format
+#| msgid "invalid personal cipher preferences\n"
+msgid "invalid personal AEAD preferences\n"
+msgstr "無效的個人編密法偏好\n"
+
+#, c-format
 msgid "invalid personal digest preferences\n"
 msgstr "無效的個人摘要偏好\n"
 
+#, c-format
 msgid "invalid personal compress preferences\n"
 msgstr "無效的個人壓縮偏好\n"
+
+#, fuzzy, c-format
+#| msgid "keysize invalid; using %u bits\n"
+msgid "chunk size invalid - using %d\n"
+msgstr "金鑰尺寸無效; 改用 %u 位元\n"
 
 #, c-format
 msgid "%s does not yet work with %s\n"
 msgstr "%s 還沒辦法跟 %s 一起運作\n"
+
+#, fuzzy, c-format
+#| msgid "you may not use cipher algorithm '%s' while in %s mode\n"
+msgid "AEAD algorithm '%s' may not be used in %s mode\n"
+msgstr "你不該將 '%s' 編密演算法用於 %s 模式\n"
 
 #, fuzzy, c-format
 #| msgid "you may not use digest algorithm '%s' while in %s mode\n"
@@ -2343,6 +2438,7 @@ msgstr "你不該將 '%s' 壓縮演算法用於 %s 模式\n"
 msgid "failed to initialize the TrustDB: %s\n"
 msgstr "信任資料庫啟始失敗: %s\n"
 
+#, c-format
 msgid "WARNING: recipients (-r) given without using public key encryption\n"
 msgstr "警告: 給定的收件者 (-r) 未使用公鑰加密\n"
 
@@ -2350,6 +2446,7 @@ msgstr "警告: 給定的收件者 (-r) 未使用公鑰加密\n"
 msgid "symmetric encryption of '%s' failed: %s\n"
 msgstr "'%s' 對稱式加密失敗: %s\n"
 
+#, c-format
 msgid "you cannot use --symmetric --encrypt with --s2k-mode 0\n"
 msgstr "你不能在 --s2k-mode 0 中使用 --symmetric --encrypt\n"
 
@@ -2358,6 +2455,7 @@ msgstr "你不能在 --s2k-mode 0 中使用 --symmetric --encrypt\n"
 msgid "you cannot use --symmetric --encrypt in %s mode\n"
 msgstr "你不能在 %s 模式中使用 --symmetric --encrypt\n"
 
+#, c-format
 msgid "you cannot use --symmetric --sign --encrypt with --s2k-mode 0\n"
 msgstr "你不能在 --s2k-mode 0 中使用 --symmetric --sign --encrypt\n"
 
@@ -2412,18 +2510,23 @@ msgstr "載入憑證 '%s' 時出錯: %s\n"
 msgid "'%s' does not appear to be a valid key ID, fingerprint or keygrip\n"
 msgstr ""
 
+#, c-format
 msgid "WARNING: no command supplied.  Trying to guess what you mean ...\n"
 msgstr ""
 
+#, c-format
 msgid "Go ahead and type your message ...\n"
 msgstr "請開始輸入你的訊息 ...\n"
 
+#, c-format
 msgid "the given certification policy URL is invalid\n"
 msgstr "給定的的憑證原則 URL 無效\n"
 
+#, c-format
 msgid "the given signature policy URL is invalid\n"
 msgstr "給定的簽章原則 URL 無效\n"
 
+#, c-format
 msgid "the given preferred keyserver URL is invalid\n"
 msgstr "給定的偏好金鑰伺服器 URL 無效\n"
 
@@ -2483,6 +2586,12 @@ msgstr "匯入後從金鑰中移除無法使用的部分"
 
 msgid "remove as much as possible from key after import"
 msgstr "匯入後盡可能地從金鑰中移除"
+
+msgid "do not import user id or attribute packets"
+msgstr ""
+
+msgid "ignore key-signatures which are not self-signatures"
+msgstr ""
 
 msgid "run import filters and export key immediately"
 msgstr ""
@@ -2580,6 +2689,11 @@ msgstr "警告: 金鑰 %s 的偏好設定含有這些使用者 ID 無法使用�
 msgid "         \"%s\": preference for cipher algorithm %s\n"
 msgstr "         \"%s\": 編密演算法 %s 的偏好設定\n"
 
+#, fuzzy, c-format
+#| msgid "         \"%s\": preference for cipher algorithm %s\n"
+msgid "         \"%s\": preference for AEAD algorithm %s\n"
+msgstr "         \"%s\": 編密演算法 %s 的偏好設定\n"
+
 #, c-format
 msgid "         \"%s\": preference for digest algorithm %s\n"
 msgstr "         \"%s\": 摘要演算法 %s 的偏好設定\n"
@@ -2588,9 +2702,11 @@ msgstr "         \"%s\": 摘要演算法 %s 的偏好設定\n"
 msgid "         \"%s\": preference for compression algorithm %s\n"
 msgstr "         \"%s\": 壓縮演算法 %s 的偏好設定\n"
 
+#, c-format
 msgid "it is strongly suggested that you update your preferences and\n"
 msgstr "我們強烈建議你更新偏好設定, 並重新\n"
 
+#, c-format
 msgid "re-distribute this key to avoid potential algorithm mismatch problems\n"
 msgstr "散佈此金鑰, 以避免潛在的演算法不一致問題.\n"
 
@@ -2621,6 +2737,7 @@ msgstr "金鑰 %s: 已接受非自我簽署的使用者 ID \"%s\"\n"
 msgid "key %s: no valid user IDs\n"
 msgstr "金鑰 %s: 沒有有效的使用者 ID\n"
 
+#, c-format
 msgid "this may be caused by a missing self-signature\n"
 msgstr "這可能肇因於遺失自我簽章所致\n"
 
@@ -2704,10 +2821,23 @@ msgstr "金鑰 %s: 私鑰已存在\n"
 msgid "key %s: error sending to agent: %s\n"
 msgstr "金鑰 %s: 送至代理程式時出錯: %s\n"
 
+#. TRANSLATORS: For a smartcard, each private key on host has a
+#. * reference (stub) to a smartcard and actual private key data
+#. * is stored on the card.  A single smartcard can have up to
+#. * three private key data.  Importing private key stub is always
+#. * skipped in 2.1, and it returns GPG_ERR_NOT_PROCESSED.
+#. * Instead, user should be suggested to run 'gpg --card-status',
+#. * then, references to a card will be automatically created
+#. * again.
+#, c-format
+msgid "To migrate '%s', with each smartcard, run: %s\n"
+msgstr ""
+
 #, c-format
 msgid "secret key %s: %s\n"
 msgstr "私鑰 %s: %s\n"
 
+#, c-format
 msgid "importing secret keys not allowed\n"
 msgstr "未允許匯入私鑰\n"
 
@@ -2715,19 +2845,28 @@ msgstr "未允許匯入私鑰\n"
 msgid "key %s: secret key with invalid cipher %d - skipped\n"
 msgstr "金鑰 %s: 私鑰使用了無效的 %d 編密法 - 已跳過\n"
 
-#. TRANSLATORS: For smartcard, each private key on
-#. host has a reference (stub) to a smartcard and
-#. actual private key data is stored on the card.  A
-#. single smartcard can have up to three private key
-#. data.  Importing private key stub is always
-#. skipped in 2.1, and it returns
-#. GPG_ERR_NOT_PROCESSED.  Instead, user should be
-#. suggested to run 'gpg --card-status', then,
-#. references to a card will be automatically
-#. created again.
+msgid "No reason specified"
+msgstr "未指定原因"
+
+msgid "Key is superseded"
+msgstr "金鑰被代換了"
+
+msgid "Key has been compromised"
+msgstr "金鑰已經被洩漏了"
+
+msgid "Key is no longer used"
+msgstr "金鑰不再被使用了"
+
+msgid "User ID is no longer valid"
+msgstr "使用者 ID 不再有效了"
+
 #, c-format
-msgid "To migrate '%s', with each smartcard, run: %s\n"
-msgstr ""
+msgid "reason for revocation: "
+msgstr "撤銷原因: "
+
+#, c-format
+msgid "revocation comment: "
+msgstr "撤銷註釋: "
 
 #, c-format
 msgid "key %s: no public key - can't apply revocation certificate\n"
@@ -2864,11 +3003,6 @@ msgstr "鑰匙圈 '%s' 已建立\n"
 #, c-format
 msgid "keyblock resource '%s': %s\n"
 msgstr "金鑰區塊資源 '%s': %s\n"
-
-#, fuzzy, c-format
-#| msgid "error opening '%s': %s\n"
-msgid "error opening key DB: %s\n"
-msgstr "開啟 '%s' 時出錯: %s\n"
 
 #, c-format
 msgid "failed to rebuild keyring cache: %s\n"
@@ -3306,13 +3440,10 @@ msgid "Quit without saving? (y/N) "
 msgstr "要不儲存就離開嗎? (y/N) "
 
 #, c-format
-msgid "update failed: %s\n"
-msgstr "更新失敗: %s\n"
-
 msgid "Key not changed so no update needed.\n"
 msgstr "金鑰沒有變更所以不需要更新.\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "You can't delete the last user ID!\n"
 msgid "cannot revoke the last valid user ID.\n"
 msgstr "你不能刪除最後一個使用者 ID!\n"
@@ -3360,6 +3491,9 @@ msgstr "\"%s\" 不是指紋\n"
 #| msgid "key \"%s\" not found: %s\n"
 msgid "subkey \"%s\" not found\n"
 msgstr "找不到金鑰 \"%s\": %s\n"
+
+msgid "AEAD: "
+msgstr ""
 
 msgid "Digest: "
 msgstr "摘要: "
@@ -3439,6 +3573,7 @@ msgstr "已撤銷"
 msgid "expired"
 msgstr "已過期"
 
+#, c-format
 msgid ""
 "WARNING: no user ID has been marked as primary.  This command may\n"
 "              cause a different user ID to become the assumed primary.\n"
@@ -3446,9 +3581,11 @@ msgstr ""
 "警告: 沒有任何使用者 ID 被標示為主要 ID. 這項指令可能會\n"
 "      導致不同的使用者 ID 被當成主要 ID.\n"
 
+#, c-format
 msgid "WARNING: Your encryption subkey expires soon.\n"
 msgstr "警告: 你的加密子鑰很快將到期.\n"
 
+#, c-format
 msgid "You may want to change its expiration date too.\n"
 msgstr "你可能也會想變更其使用期限.\n"
 
@@ -3525,15 +3662,18 @@ msgstr "你不可以把指定撤銷者增加到 PGP2 型態的金鑰裡.\n"
 msgid "Enter the user ID of the designated revoker: "
 msgstr "輸入指定撤銷者的使用者 ID: "
 
+#, c-format
 msgid "cannot appoint a PGP 2.x style key as a designated revoker\n"
 msgstr "無法將 PGP 2.x 型態的金鑰指派為指定撤銷者\n"
 
 #  This actually causes no harm (after all, a key that
 #  designates itself as a revoker is the same as a
 #  regular key), but it's easy enough to check.
+#, c-format
 msgid "you cannot appoint a key as its own designated revoker\n"
 msgstr "你不能指派某把金鑰為它自己的指定撤銷者\n"
 
+#, c-format
 msgid "this key has already been designated as a revoker\n"
 msgstr "已指定這把金鑰為撤銷者了\n"
 
@@ -3558,6 +3698,7 @@ msgstr "正在變更子鑰的使用期限.\n"
 msgid "Changing expiration time for the primary key.\n"
 msgstr "正在變更主鑰的使用期限.\n"
 
+#, c-format
 msgid "You can't change the expiration date of a v3 key\n"
 msgstr "你不能變更 v3 金鑰的使用期限\n"
 
@@ -3659,6 +3800,7 @@ msgstr "你正要撤銷這些簽章:\n"
 msgid "Really create the revocation certificates? (y/N) "
 msgstr "真的要建立撤銷憑證嗎? (y/N) "
 
+#, c-format
 msgid "no secret key\n"
 msgstr "沒有私鑰\n"
 
@@ -3674,7 +3816,7 @@ msgstr "使用者 ID \"%s\" 已撤銷\n"
 msgid "WARNING: a user ID signature is dated %d seconds in the future\n"
 msgstr "警告: 有一份使用者 ID 的簽章日期為 %d 秒後的未來\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "You can't delete the last user ID!\n"
 msgid "Cannot revoke the last valid user ID.\n"
 msgstr "你不能刪除最後一個使用者 ID!\n"
@@ -3700,25 +3842,36 @@ msgstr "選項 \"%.50s\" 的引數無效\n"
 msgid "preference '%s' duplicated\n"
 msgstr "偏好設定 '%s' 重複了\n"
 
+#, c-format
 msgid "too many cipher preferences\n"
 msgstr "編密偏好過多\n"
 
+#, c-format
 msgid "too many digest preferences\n"
 msgstr "摘要偏好過多\n"
 
+#, c-format
 msgid "too many compression preferences\n"
 msgstr "壓縮偏好過多\n"
+
+#, fuzzy, c-format
+#| msgid "too many cipher preferences\n"
+msgid "too many AEAD preferences\n"
+msgstr "編密偏好過多\n"
 
 #, c-format
 msgid "invalid item '%s' in preference string\n"
 msgstr "偏好字串中含有無效的項目 '%s'\n"
 
+#, c-format
 msgid "writing direct signature\n"
 msgstr "寫入直接簽章中\n"
 
+#, c-format
 msgid "writing self signature\n"
 msgstr "寫入自我簽章中\n"
 
+#, c-format
 msgid "writing key binding signature\n"
 msgstr "寫入附鑰簽章中\n"
 
@@ -3730,6 +3883,7 @@ msgstr "金鑰尺寸無效; 改用 %u 位元\n"
 msgid "keysize rounded up to %u bits\n"
 msgstr "金鑰尺寸增大到 %u 位元\n"
 
+#, c-format
 msgid ""
 "WARNING: some OpenPGP programs can't handle a DSA key with this digest size\n"
 msgstr "警告: 某些 OpenPGP 程式無法處理具有此摘要尺寸的 DSA 金鑰\n"
@@ -3747,20 +3901,21 @@ msgid "Authenticate"
 msgstr "鑑定"
 
 #. TRANSLATORS: Please use only plain ASCII characters for the
-#. translation.  If this is not possible use single digits.  The
-#. string needs to 8 bytes long. Here is a description of the
-#. functions:
-#.
-#. s = Toggle signing capability
-#. e = Toggle encryption capability
-#. a = Toggle authentication capability
-#. q = Finish
+#. * translation.  If this is not possible use single digits.  The
+#. * string needs to 8 bytes long. Here is a description of the
+#. * functions:
+#. *
+#. *   s = Toggle signing capability
+#. *   e = Toggle encryption capability
+#. *   a = Toggle authentication capability
+#. *   q = Finish
 #.
 msgid "SsEeAaQq"
 msgstr "SsEeAaQq"
 
-#, c-format
-msgid "Possible actions for a %s key: "
+#, fuzzy, c-format
+#| msgid "Possible actions for a %s key: "
+msgid "Possible actions for this %s key: "
 msgstr "%s 金鑰可能的動作: "
 
 msgid "Current allowed actions: "
@@ -3834,14 +3989,31 @@ msgstr "   (%d) ECC (僅能用於加密)\n"
 msgid "  (%d) Existing key\n"
 msgstr "   (%d) 現有的金鑰\n"
 
+#, fuzzy, c-format
+#| msgid "   (%d) Existing key from card\n"
+msgid "  (%d) Existing key from card\n"
+msgstr "   (%d) 卡片上現存的金鑰\n"
+
 msgid "Enter the keygrip: "
 msgstr "請輸入金鑰鑰柄: "
 
+#, c-format
 msgid "Not a valid keygrip (expecting 40 hex digits)\n"
 msgstr "不是有效的金鑰鑰柄 (應該要是 40 位十六進制數值)\n"
 
 msgid "No key with this keygrip\n"
 msgstr "沒有金鑰有此金鑰鑰柄\n"
+
+#, c-format
+msgid "error reading the card: %s\n"
+msgstr "讀取卡片時出錯: %s\n"
+
+#, c-format
+msgid "Serial number of the card: %s\n"
+msgstr "卡片序號: %s\n"
+
+msgid "Available keys:\n"
+msgstr "可用金鑰:\n"
 
 #, c-format
 msgid "rounded to %u bits\n"
@@ -4061,6 +4233,7 @@ msgstr "\"%s\" 的金鑰已存在\n"
 msgid "Create anyway? (y/N) "
 msgstr "無論如何還是要建立嗎? (y/N) "
 
+#, c-format
 msgid "creating anyway\n"
 msgstr "總之還是在建立\n"
 
@@ -4068,6 +4241,7 @@ msgstr "總之還是在建立\n"
 msgid "Note: Use \"%s %s\" for a full featured key generation dialog.\n"
 msgstr "請注意: 如需全能金鑰產生對話框請用  \"%s %s\".\n"
 
+#, c-format
 msgid "Key generation canceled.\n"
 msgstr "金鑰產生已取消.\n"
 
@@ -4111,12 +4285,15 @@ msgid ""
 "key has been created %lu seconds in future (time warp or clock problem)\n"
 msgstr "金鑰已經在 %lu 秒後的未來製妥 (可能是因為時光旅行或時鐘的問題)\n"
 
+#, c-format
 msgid "Note: creating subkeys for v3 keys is not OpenPGP compliant\n"
 msgstr "請注意: 對 v3 金鑰製造子鑰不符合 OpenPGP 規範\n"
 
+#, c-format
 msgid "Secret parts of primary key are not available.\n"
 msgstr "主鑰的私鑰部分無法取用.\n"
 
+#, c-format
 msgid "Secret parts of primary key are stored on-card.\n"
 msgstr "主鑰的私鑰部分存放於卡上.\n"
 
@@ -4270,11 +4447,9 @@ msgstr "警告: 無法更新金鑰 %s 於 %s: %s\n"
 msgid "key \"%s\" not found on keyserver\n"
 msgstr "在金鑰伺服器上找不到金鑰 \"%s\"\n"
 
+#, c-format
 msgid "key not found on keyserver\n"
 msgstr "在金鑰伺服器上找不到金鑰\n"
-
-msgid "no keyserver known (use option --keyserver)\n"
-msgstr "沒有已知的金鑰伺服器 (使用 --keyserver 選項)\n"
 
 #, c-format
 msgid "requesting key %s from %s server %s\n"
@@ -4284,7 +4459,7 @@ msgstr "正在請求金鑰 %s 自 %s 伺服器 %s\n"
 msgid "requesting key %s from %s\n"
 msgstr "正在請求金鑰 %s 自 %s\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "invalid keyserver options\n"
 msgid "no keyserver known\n"
 msgstr "無效的金鑰伺服器選項\n"
@@ -4309,9 +4484,15 @@ msgstr "警告: 無法抓取 URI %s: %s\n"
 msgid "weird size for an encrypted session key (%d)\n"
 msgstr "加密過的階段金鑰 (%d) 尺寸詭異\n"
 
-#, c-format
-msgid "%s encrypted session key\n"
+#, fuzzy, c-format
+#| msgid "%s encrypted session key\n"
+msgid "%s.%s encrypted session key\n"
 msgstr "%s 加密過的階段金鑰\n"
+
+#, fuzzy, c-format
+#| msgid "encrypted with unknown algorithm %d\n"
+msgid "encrypted with unknown algorithm %d.%s\n"
+msgstr "以 %d 未知演算法所加密\n"
 
 #, c-format
 msgid "passphrase generated with unknown digest algorithm %d\n"
@@ -4321,11 +4502,9 @@ msgstr "密語係以未知的 %d 摘要演算法所產生\n"
 msgid "public key is %s\n"
 msgstr "公鑰為 %s\n"
 
-msgid "public key encrypted data: good DEK\n"
-msgstr "公鑰加密過的資料: 完好的 DEK\n"
-
-#, c-format
-msgid "encrypted with %u-bit %s key, ID %s, created %s\n"
+#, fuzzy, c-format
+#| msgid "encrypted with %u-bit %s key, ID %s, created %s\n"
+msgid "encrypted with %s key, ID %s, created %s\n"
 msgstr "已用 %u 位元長的 %s 金鑰,  ID %s, 建立於 %s 所加密\n"
 
 #, c-format
@@ -4337,15 +4516,24 @@ msgid "encrypted with %s key, ID %s\n"
 msgstr "已用 %s 金鑰, ID %s 所加密\n"
 
 #, c-format
-msgid "public key decryption failed: %s\n"
-msgstr "公鑰解密失敗: %s\n"
+msgid "WARNING: multiple plaintexts seen\n"
+msgstr "警告: 看到了多份明文\n"
 
 #, c-format
 msgid "encrypted with %lu passphrases\n"
 msgstr "已用 %lu 個密語加密了\n"
 
+#, c-format
 msgid "encrypted with 1 passphrase\n"
 msgstr "已用 1 個密語加密了\n"
+
+#, c-format
+msgid "public key decryption failed: %s\n"
+msgstr "公鑰解密失敗: %s\n"
+
+#, c-format
+msgid "public key encrypted data: good DEK\n"
+msgstr "公鑰加密過的資料: 完好的 DEK\n"
 
 #, c-format
 msgid "assuming %s encrypted data\n"
@@ -4355,12 +4543,30 @@ msgstr "假定 %s 為加密過的資料\n"
 msgid "IDEA cipher unavailable, optimistically attempting to use %s instead\n"
 msgstr "IDEA 編密法不可用, 我們樂觀地試著改以 %s 代替\n"
 
+#, c-format
 msgid "WARNING: message was not integrity protected\n"
 msgstr "警告: 訊息未受到完整的保護\n"
 
+msgid ""
+"Hint: If this message was created before the year 2003 it is\n"
+"likely that this message is legitimate.  This is because back\n"
+"then integrity protection was not widely used.\n"
+msgstr ""
+
+#, c-format
+msgid "Use the option '%s' to decrypt anyway.\n"
+msgstr ""
+
+#, fuzzy, c-format
+#| msgid "decryption failed: %s\n"
+msgid "decryption forced to fail!\n"
+msgstr "解密失敗: %s\n"
+
+#, c-format
 msgid "decryption okay\n"
 msgstr "解密成功\n"
 
+#, c-format
 msgid "WARNING: encrypted message has been manipulated!\n"
 msgstr "警告: 加密過的訊息已經被變造了!\n"
 
@@ -4368,6 +4574,7 @@ msgstr "警告: 加密過的訊息已經被變造了!\n"
 msgid "decryption failed: %s\n"
 msgstr "解密失敗: %s\n"
 
+#, c-format
 msgid "Note: sender requested \"for-your-eyes-only\"\n"
 msgstr "請注意: 寄件者要求了 \"只准你用眼睛看\"\n"
 
@@ -4375,12 +4582,11 @@ msgstr "請注意: 寄件者要求了 \"只准你用眼睛看\"\n"
 msgid "original file name='%.*s'\n"
 msgstr "原始的檔名 ='%.*s'\n"
 
-msgid "WARNING: multiple plaintexts seen\n"
-msgstr "警告: 看到了多份明文\n"
-
+#, c-format
 msgid "standalone revocation - use \"gpg --import\" to apply\n"
 msgstr "獨立撤銷 - 請用 \"gpg --import\" 來套用\n"
 
+#, c-format
 msgid "no signature found\n"
 msgstr "找不到簽章\n"
 
@@ -4396,9 +4602,11 @@ msgstr "過期的簽章來自於 \"%s\""
 msgid "Good signature from \"%s\""
 msgstr "完好的簽章來自於 \"%s\""
 
+#, c-format
 msgid "signature verification suppressed\n"
 msgstr "簽章驗證已抑制\n"
 
+#, c-format
 msgid "can't handle this ambiguous signature data\n"
 msgstr "無法處理這個不明確的簽章資料\n"
 
@@ -4419,8 +4627,13 @@ msgstr "由 %s 建立的簽章, 使用 %s 金鑰 ID %s\n"
 msgid "               issuer \"%s\"\n"
 msgstr "                亦即 \"%s\""
 
+#, c-format
 msgid "Key available at: "
 msgstr "可用的金鑰於: "
+
+#, c-format
+msgid "Note: Use '%s' to make use of this info\n"
+msgstr ""
 
 msgid "[uncertain]"
 msgstr "[ 不確定 ]"
@@ -4466,9 +4679,11 @@ msgstr ""
 msgid "Can't check signature: %s\n"
 msgstr "無法檢查簽章: %s\n"
 
+#, c-format
 msgid "not a detached signature\n"
 msgstr "不是一份分離的簽章\n"
 
+#, c-format
 msgid ""
 "WARNING: multiple signatures detected.  Only the first will be checked.\n"
 msgstr "警告: 偵測到多重簽章. 祇有第一個簽章纔會被核選.\n"
@@ -4477,6 +4692,7 @@ msgstr "警告: 偵測到多重簽章. 祇有第一個簽章纔會被核選.\n"
 msgid "standalone signature of class 0x%02x\n"
 msgstr "等級 0x%02x 的獨立簽章\n"
 
+#, c-format
 msgid "old style (PGP 2.x) signature\n"
 msgstr "舊型 (PGP 2.x) 簽章\n"
 
@@ -4492,6 +4708,7 @@ msgstr "fstat(%d) 失敗於 %s: %s\n"
 msgid "WARNING: using experimental public key algorithm %s\n"
 msgstr "警告: 正在使用實驗性的 %s 公鑰演算法\n"
 
+#, c-format
 msgid "WARNING: Elgamal sign+encrypt keys are deprecated\n"
 msgstr "警告: 已不建議使用 Elgamal 簽署暨加密金鑰\n"
 
@@ -4512,6 +4729,11 @@ msgid "Note: signatures using the %s algorithm are rejected\n"
 msgstr "請注意: 採用 %s 演算法的簽章已遭駁回\n"
 
 #, fuzzy, c-format
+#| msgid "Note: signatures using the %s algorithm are rejected\n"
+msgid "Note: third-party key signatures using the %s algorithm are rejected\n"
+msgstr "請注意: 採用 %s 演算法的簽章已遭駁回\n"
+
+#, fuzzy, c-format
 #| msgid "%s:%u: read error: %s\n"
 msgid "(reported error: %s)\n"
 msgstr "%s:%u: 讀取錯誤: %s\n"
@@ -4521,6 +4743,7 @@ msgstr "%s:%u: 讀取錯誤: %s\n"
 msgid "(reported error: %s <%s>)\n"
 msgstr "'%s' 讀取錯誤: %s\n"
 
+#, c-format
 msgid "(further info: "
 msgstr ""
 
@@ -4568,6 +4791,7 @@ msgstr "不明確的選項 '%s'\n"
 msgid "unknown option '%s'\n"
 msgstr "未知的選項 '%s'\n"
 
+#, c-format
 msgid "ECDSA public key is expected to be in SEC encoding multiple of 8 bits\n"
 msgstr "ECDSA 公鑰應該要是 8 位元倍數的 SEC 編碼\n"
 
@@ -4590,6 +4814,7 @@ msgstr "%s: 未知的副檔名\n"
 msgid "Enter new filename"
 msgstr "請輸入新的檔名"
 
+#, c-format
 msgid "writing to stdout\n"
 msgstr "寫到標準輸出中\n"
 
@@ -4601,20 +4826,23 @@ msgstr "假設被簽署的資料在 '%s'\n"
 msgid "can't handle public key algorithm %d\n"
 msgstr "無法操作 %d 公開金鑰演算法\n"
 
+#, c-format
 msgid "WARNING: potentially insecure symmetrically encrypted session key\n"
 msgstr "警告: 可能並不安全的對稱式加密階段金鑰\n"
+
+#, fuzzy, c-format
+#| msgid "Critical signature notation: "
+msgid "Unknown critical signature notation: "
+msgstr "關鍵簽章註記: "
 
 #, c-format
 msgid "subpacket of type %d has critical bit set\n"
 msgstr "%d 類別的子封包設定了關鍵位元\n"
 
-#, c-format
-msgid "problem with the agent: %s\n"
-msgstr "代理程式的問題: %s\n"
-
 msgid "Enter passphrase\n"
 msgstr "請輸入密語\n"
 
+#, c-format
 msgid "cancelled by user\n"
 msgstr "由使用者所取消\n"
 
@@ -4688,29 +4916,42 @@ msgstr "'%s' 不是 JPEG 圖檔\n"
 msgid "Is this photo correct (y/N/q)? "
 msgstr "這張照片正確嗎? (y/N/q) "
 
+#, c-format
+msgid "no remote program execution supported\n"
+msgstr "沒有支援的遠端程式執行\n"
+
+#, c-format
+msgid "this platform requires temporary files when calling external programs\n"
+msgstr "在這個作業平台上叫用外部程式時需要暫存檔\n"
+
+#, c-format
+msgid "unable to execute shell '%s': %s\n"
+msgstr "無法執行 shell '%s': %s\n"
+
+#, c-format
+msgid "unnatural exit of external program\n"
+msgstr "外部程式不自然地離開\n"
+
+#, c-format
+msgid "system error while calling external program: %s\n"
+msgstr "叫用外部程式時發生系統錯誤: %s\n"
+
+#, c-format
+msgid "WARNING: unable to remove tempfile (%s) '%s': %s\n"
+msgstr "警告: 無法移除暫存檔 (%s) '%s': %s\n"
+
+#, c-format
+msgid "WARNING: unable to remove temp directory '%s': %s\n"
+msgstr "警告: 無法移除暫存目錄 '%s': %s\n"
+
+#, c-format
+msgid ""
+"external program calls are disabled due to unsafe options file permissions\n"
+msgstr "因為不安全的檔案權限選項, 而禁用了外部程式叫用\n"
+
+#, c-format
 msgid "unable to display photo ID!\n"
 msgstr "無法顯示照片 ID!\n"
-
-msgid "No reason specified"
-msgstr "未指定原因"
-
-msgid "Key is superseded"
-msgstr "金鑰被代換了"
-
-msgid "Key has been compromised"
-msgstr "金鑰已經被洩漏了"
-
-msgid "Key is no longer used"
-msgstr "金鑰不再被使用了"
-
-msgid "User ID is no longer valid"
-msgstr "使用者 ID 不再有效了"
-
-msgid "reason for revocation: "
-msgstr "撤銷原因: "
-
-msgid "revocation comment: "
-msgstr "撤銷註釋: "
 
 #  a string with valid answers
 #. TRANSLATORS: These are the allowed answers in lower and
@@ -4783,9 +5024,11 @@ msgstr "%s: 沒法保證這把金鑰真的屬於叫這個名字的使用者\n"
 msgid "%s: There is limited assurance this key belongs to the named user\n"
 msgstr "%s: 祇能有限的保證這把金鑰真的屬於叫這個名字的使用者\n"
 
+#, c-format
 msgid "This key probably belongs to the named user\n"
 msgstr "這把金鑰很可能屬於叫這個名字的使用者\n"
 
+#, c-format
 msgid "This key belongs to us\n"
 msgstr "這把金鑰是屬於我們自己的\n"
 
@@ -4820,24 +5063,31 @@ msgstr ""
 msgid "Use this key anyway? (y/N) "
 msgstr "無論如何還是使用這把金鑰嗎? (y/N) "
 
+#, c-format
 msgid "WARNING: Using untrusted key!\n"
 msgstr "警告: 正在使用不被信任的金鑰!\n"
 
+#, c-format
 msgid "WARNING: this key might be revoked (revocation key not present)\n"
 msgstr "警告: 這把金鑰可能已撤銷 (撤銷金鑰未出現)\n"
 
+#, c-format
 msgid "WARNING: This key has been revoked by its designated revoker!\n"
 msgstr "警告: 這把金鑰已被指定撤銷者所撤銷!\n"
 
+#, c-format
 msgid "WARNING: This key has been revoked by its owner!\n"
 msgstr "警告: 這把金鑰已被其持有人所撤銷!\n"
 
+#, c-format
 msgid "         This could mean that the signature is forged.\n"
 msgstr "         這很有可能表示此簽章是偽造的.\n"
 
+#, c-format
 msgid "WARNING: This subkey has been revoked by its owner!\n"
 msgstr "警告: 這把子鑰已被其持有人所撤銷!\n"
 
+#, c-format
 msgid "Note: This key has been disabled.\n"
 msgstr "請注意: 這把金鑰已停用.\n"
 
@@ -4849,32 +5099,41 @@ msgstr "請注意: 已驗證的簽署者地址為 '%s'\n"
 msgid "Note: Signer's address '%s' does not match DNS entry\n"
 msgstr "請注意: 簽署者地址 '%s' 與 DNS 項目並不吻合\n"
 
+#, c-format
 msgid "trustlevel adjusted to FULL due to valid PKA info\n"
 msgstr "信任等級因有效的 PKA 資訊而調整為 *完全*\n"
 
+#, c-format
 msgid "trustlevel adjusted to NEVER due to bad PKA info\n"
 msgstr "信任等級因不良的 PKA 資訊而調整為 *永遠不會*\n"
 
+#, c-format
 msgid "Note: This key has expired!\n"
 msgstr "請注意: 這把金鑰已經過期了!\n"
 
+#, c-format
 msgid "WARNING: This key is not certified with a trusted signature!\n"
 msgstr "警告: 這把金鑰並非以受信任的簽章所認證!\n"
 
+#, c-format
 msgid ""
 "         There is no indication that the signature belongs to the owner.\n"
 msgstr "         沒有證據指出這個簽章屬於這個持有者.\n"
 
+#, c-format
 msgid "WARNING: We do NOT trust this key!\n"
 msgstr "警告: 我們 *不* 信任這把金鑰!\n"
 
+#, c-format
 msgid "         The signature is probably a FORGERY.\n"
 msgstr "         這個簽章很有可能是 *偽造的*.\n"
 
+#, c-format
 msgid ""
 "WARNING: This key is not certified with sufficiently trusted signatures!\n"
 msgstr "警告: 這把金鑰並非以足夠信任的簽章所認證!\n"
 
+#, c-format
 msgid "         It is not certain that the signature belongs to the owner.\n"
 msgstr "         這份簽章並不屬於這個持有者\n"
 
@@ -4921,12 +5180,14 @@ msgstr ""
 msgid "No such user ID.\n"
 msgstr "沒有這個使用者 ID.\n"
 
+#, c-format
 msgid "skipped: public key already set as default recipient\n"
 msgstr "已跳過: 公鑰已經被設成預設收件者\n"
 
 msgid "Public key is disabled.\n"
 msgstr "公鑰已停用.\n"
 
+#, c-format
 msgid "skipped: public key already set\n"
 msgstr "已跳過: 公鑰已設過\n"
 
@@ -4934,6 +5195,7 @@ msgstr "已跳過: 公鑰已設過\n"
 msgid "unknown default recipient \"%s\"\n"
 msgstr "未知的預設收件者 \"%s\"\n"
 
+#, c-format
 msgid "no valid addressees\n"
 msgstr "沒有有效的地址\n"
 
@@ -4945,6 +5207,7 @@ msgstr "請注意: 金鑰 %s 沒有 %s 功能\n"
 msgid "Note: key %s has no preference for %s\n"
 msgstr "警告: 金鑰 %s 沒有 %s 的偏好設定\n"
 
+#, c-format
 msgid "data not saved; use option \"--output\" to save it\n"
 msgstr "資料未被儲存; 請用 \"--output\" 選項來儲存\n"
 
@@ -4954,9 +5217,11 @@ msgstr "分離的簽章.\n"
 msgid "Please enter name of data file: "
 msgstr "請輸入資料檔的名稱: "
 
+#, c-format
 msgid "reading stdin ...\n"
 msgstr "正在讀取標準輸入中 ...\n"
 
+#, c-format
 msgid "no signed data\n"
 msgstr "沒有被簽署過的資料\n"
 
@@ -4977,9 +5242,11 @@ msgstr "憑證無法用於加密\n"
 msgid "anonymous recipient; trying secret key %s ...\n"
 msgstr "匿名收件者; 正在嘗試使用私鑰 %s ...\n"
 
+#, c-format
 msgid "okay, we are the anonymous recipient.\n"
 msgstr "很好, 我們就是匿名收件者.\n"
 
+#, c-format
 msgid "old encoding of the DEK is not supported\n"
 msgstr "不支援舊式的 DEK 編碼\n"
 
@@ -4995,6 +5262,7 @@ msgstr "警告: 收件者偏好設定中找不到 %s 編密演算法\n"
 msgid "Note: secret key %s expired at %s\n"
 msgstr "請注意: 私鑰 %s 已於 %s 過期\n"
 
+#, c-format
 msgid "Note: key has been revoked"
 msgstr "請注意: 金鑰已撤銷"
 
@@ -5141,6 +5409,7 @@ msgstr "(沒有給定描述)\n"
 msgid "Is this okay? (y/N) "
 msgstr "這樣可以嗎? (y/N) "
 
+#, c-format
 msgid "weak key created - retrying\n"
 msgstr "建立了弱金鑰 - 重試中\n"
 
@@ -5156,6 +5425,7 @@ msgstr "%s 金鑰 %s 使用不安全 (%zu 位元) 的雜湊\n"
 msgid "%s key %s requires a %zu bit or larger hash (hash is %s)\n"
 msgstr "%s 金鑰 %s 需要 %zu 位元以上的雜湊 (雜湊為 %s)\n"
 
+#, c-format
 msgid "WARNING: signature digest conflict in message\n"
 msgstr "警告: 簽章摘要與訊息不一致\n"
 
@@ -5220,6 +5490,11 @@ msgstr "請注意: 簽章金鑰 %s 已遭撤銷\n"
 msgid "bad key signature from key %s: %s (0x%02x, 0x%x)\n"
 msgstr "等級 0x%02x 的獨立簽章\n"
 
+#, fuzzy, c-format
+#| msgid "standalone signature of class 0x%02x\n"
+msgid "bad data signature from key %s: %s (0x%02x, 0x%x)\n"
+msgstr "等級 0x%02x 的獨立簽章\n"
+
 #, c-format
 msgid "assuming bad signature from key %s due to an unknown critical bit\n"
 msgstr "假設金鑰 %s 的損壞簽章導因於某個未知的關鍵位元\n"
@@ -5256,13 +5531,16 @@ msgid ""
 "WARNING: forcing digest algorithm %s (%d) violates recipient preferences\n"
 msgstr "警告: 強迫使用 %s (%d) 摘要演算法會違反收件者偏好設定\n"
 
+#, c-format
 msgid "signing:"
 msgstr "簽署:"
 
-#, c-format
-msgid "%s encryption will be used\n"
+#, fuzzy, c-format
+#| msgid "%s encryption will be used\n"
+msgid "%s.%s encryption will be used\n"
 msgstr "%s 加密將被採用\n"
 
+#, c-format
 msgid "key is not flagged as insecure - can't use it with the faked RNG!\n"
 msgstr "金鑰未被標示為不安全 - 不能夠拿來跟假的隨機數字產生器併用!\n"
 
@@ -5270,6 +5548,7 @@ msgstr "金鑰未被標示為不安全 - 不能夠拿來跟假的隨機數字產
 msgid "skipped \"%s\": duplicated\n"
 msgstr "已跳過 \"%s\": 重複了\n"
 
+#, c-format
 msgid "skipped: secret key already present\n"
 msgstr "已跳過: 私鑰已經存在\n"
 
@@ -5332,6 +5611,7 @@ msgstr "信任資料庫記錄 %lu: 本機搜尋失敗: %s\n"
 msgid "trustdb rec %lu: write failed (n=%d): %s\n"
 msgstr "信任資料庫記錄 %lu: 寫入失敗 (n=%d): %s\n"
 
+#, c-format
 msgid "trustdb transaction too large\n"
 msgstr "信任資料庫更動量過大\n"
 
@@ -5355,6 +5635,7 @@ msgstr "%s: 建立了無效的信任資料庫\n"
 msgid "%s: trustdb created\n"
 msgstr "%s: 建立了信任資料庫\n"
 
+#, c-format
 msgid "Note: trustdb not writable\n"
 msgstr "請注意: 信任資料庫不可寫入\n"
 
@@ -5414,6 +5695,7 @@ msgstr "%s: 記錄歸零失敗: %s\n"
 msgid "%s: failed to append a record: %s\n"
 msgstr "%s: 附加記錄失敗: %s\n"
 
+#, c-format
 msgid "Error: The trustdb is corrupted.\n"
 msgstr "錯誤: 信任資料庫已毀損.\n"
 
@@ -5443,11 +5725,7 @@ msgstr ""
 msgid "unsupported TOFU database version: %s\n"
 msgstr "未支援的演算法: %s"
 
-#, fuzzy, c-format
-#| msgid "error creating temporary file: %s\n"
-msgid "error creating 'ultimately_trusted_keys' TOFU table: %s\n"
-msgstr "建立暫存檔時出錯: %s\n"
-
+#, c-format
 msgid "TOFU DB error"
 msgstr ""
 
@@ -5465,15 +5743,6 @@ msgstr "寫入 base64 編碼時出錯: %s\n"
 #| msgid "error initializing reader object: %s\n"
 msgid "error initializing TOFU database: %s\n"
 msgstr "啟始讀取程式物件時出錯: %s\n"
-
-#, fuzzy, c-format
-#| msgid "error sending data: %s\n"
-msgid "error creating 'encryptions' TOFU table: %s\n"
-msgstr "送出資料時出錯: %s\n"
-
-#, c-format
-msgid "adding column effective_policy to bindings DB: %s\n"
-msgstr ""
 
 #, fuzzy, c-format
 #| msgid "error opening '%s': %s\n"
@@ -5619,18 +5888,9 @@ msgstr ""
 msgid "Defaulting to unknown.\n"
 msgstr ""
 
+#, c-format
 msgid "TOFU db corruption detected.\n"
 msgstr ""
-
-#, fuzzy, c-format
-#| msgid "error writing key: %s\n"
-msgid "resetting keydb: %s\n"
-msgstr "寫入金鑰時出錯: %s\n"
-
-#, fuzzy, c-format
-#| msgid "error setting OCSP target: %s\n"
-msgid "error setting TOFU binding's policy to %s\n"
-msgstr "設定 OCSP 目標時出錯: %s\n"
 
 #, fuzzy, c-format
 #| msgid "error creating a pipe: %s\n"
@@ -5681,39 +5941,31 @@ msgstr ""
 msgid "%s: Verified 0 signatures."
 msgstr "已經刪除了 %d 份簽章.\n"
 
-#, fuzzy, c-format
-#| msgid "print message digests"
-msgid "%s: Verified %ld~signature in the past %s."
-msgid_plural "%s: Verified %ld~signatures in the past %s."
-msgstr[0] "印出訊息摘要"
-
 #, fuzzy
 #| msgid "encrypted with %lu passphrases\n"
 msgid "Encrypted 0 messages."
 msgstr "已用 %lu 個密語加密了\n"
 
 #, fuzzy, c-format
-#| msgid "print message digests"
-msgid "Encrypted %ld~message in the past %s."
-msgid_plural "Encrypted %ld~messages in the past %s."
-msgstr[0] "印出訊息摘要"
-
-#, fuzzy, c-format
 #| msgid "validity: %s"
 msgid "(policy: %s)"
 msgstr "有效性: %s"
 
+#, c-format
 msgid ""
 "Warning: we have yet to see a message signed using this key and user id!\n"
 msgstr ""
 
+#, c-format
 msgid ""
 "Warning: we've only seen one message signed using this key and user id!\n"
 msgstr ""
 
+#, c-format
 msgid "Warning: you have yet to encrypt a message to this key!\n"
 msgstr ""
 
+#, c-format
 msgid "Warning: you have only encrypted one message to this key!\n"
 msgstr ""
 
@@ -5740,11 +5992,6 @@ msgstr "送出資料時出錯: %s\n"
 #, c-format
 msgid "WARNING: Encrypting to %s, which has no non-revoked user ids\n"
 msgstr ""
-
-#, fuzzy, c-format
-#| msgid "error writing public keyring '%s': %s\n"
-msgid "error setting policy for key %s, user id \"%s\": %s"
-msgstr "寫入公鑰鑰匙圈 '%s' 時出錯: %s\n"
 
 #, c-format
 msgid "'%s' is not a valid long keyID\n"
@@ -5774,9 +6021,11 @@ msgstr "信任記錄 %lu, 請求類別 %d: 讀取失敗: %s\n"
 msgid "trust record %lu is not of requested type %d\n"
 msgstr "信任記錄 %lu 不是所請求的類別 %d\n"
 
+#, c-format
 msgid "You may try to re-create the trustdb using the commands:\n"
 msgstr "你可以試著用下列指令來重建信任資料庫:\n"
 
+#, c-format
 msgid "If that does not work, please consult the manual\n"
 msgstr "如果行不通的話, 請查閱手冊\n"
 
@@ -5788,6 +6037,7 @@ msgstr "無法使用未知的信任模型 (%d) - 現在採用 %s 信任模型\n"
 msgid "using %s trust model\n"
 msgstr "正在使用 %s 信任模型\n"
 
+#, c-format
 msgid "no need for a trustdb check\n"
 msgstr "不需要檢查信任資料庫\n"
 
@@ -5807,9 +6057,11 @@ msgstr "在 '%s' 信任模型中並不需要更新信任資料庫\n"
 msgid "public key %s not found: %s\n"
 msgstr "找不到公鑰 %s: %s\n"
 
+#, c-format
 msgid "please do a --check-trustdb\n"
 msgstr "請做一次 --check-trustdb\n"
 
+#, c-format
 msgid "checking the trustdb\n"
 msgstr "正在檢查信任資料庫\n"
 
@@ -5825,6 +6077,7 @@ msgid " (%d validity count cleared)\n"
 msgid_plural " (%d validity counts cleared)\n"
 msgstr[0] "已經處理了 %d 把金鑰 (共計已解決了 %d 份有效性)\n"
 
+#, c-format
 msgid "no ultimately trusted keys found\n"
 msgstr "沒有找到任何徹底信任的金鑰\n"
 
@@ -5901,6 +6154,7 @@ msgstr ""
 msgid "[ultimate]"
 msgstr ""
 
+#, c-format
 msgid ""
 "the signature could not be verified.\n"
 "Please remember that the signature file (.sig or .asc)\n"
@@ -5917,6 +6171,16 @@ msgstr "輸入列 %u 太長或者列末的 LF 遺失了\n"
 #, c-format
 msgid "can't open fd %d: %s\n"
 msgstr "無法開啟 fd %d: %s\n"
+
+#, fuzzy, c-format
+#| msgid "WARNING: message was not integrity protected\n"
+msgid "WARNING: encrypting without integrity protection is dangerous\n"
+msgstr "警告: 訊息未受到完整的保護\n"
+
+#, fuzzy, c-format
+#| msgid "ambiguous option '%s'\n"
+msgid "Hint: Do not use option %s\n"
+msgstr "不明確的選項 '%s'\n"
 
 msgid "set debugging flags"
 msgstr "設定除錯旗標"
@@ -5946,6 +6210,7 @@ msgstr "RSA 公用指數缺漏或者大於 %d 位元\n"
 msgid "PIN callback returned error: %s\n"
 msgstr "收回個人識別碼 (PIN) 時傳回錯誤: %s\n"
 
+#, c-format
 msgid "the NullPIN has not yet been changed\n"
 msgstr "NullPIN 還沒有變更過\n"
 
@@ -5989,20 +6254,24 @@ msgstr "存放指紋失敗: %s\n"
 msgid "failed to store the creation date: %s\n"
 msgstr "存放創生日期失敗: %s\n"
 
+#, c-format
 msgid "error retrieving CHV status from card\n"
 msgstr "從卡片取回 CHV 狀態時出錯\n"
 
+#, c-format
 msgid "response does not contain the RSA modulus\n"
 msgstr "回應中未包含 RSA 系數\n"
 
+#, c-format
 msgid "response does not contain the RSA public exponent\n"
 msgstr "回應中未包含 RSA 公用指數\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "response does not contain the EC public point\n"
 msgid "response does not contain the EC public key\n"
 msgstr "回應中未包含 EC 公用指數\n"
 
+#, c-format
 msgid "response does not contain the public key data\n"
 msgstr "回應中未包含公鑰資料\n"
 
@@ -6048,6 +6317,7 @@ msgstr "用於 CHV%d 的個人識別碼 (PIN) 太短; 長度最少要有 %d\n"
 msgid "verify CHV%d failed: %s\n"
 msgstr "驗證 CHV%d 失敗: %s\n"
 
+#, c-format
 msgid "card is permanently locked!\n"
 msgstr "卡片永久鎖定了!!\n"
 
@@ -6063,6 +6333,7 @@ msgstr[0] "%d 管理者個人識別碼 (PIN) 試圖在卡片永久鎖定前遺�
 msgid "|A|Please enter the Admin PIN"
 msgstr "|A|請輸入管理者 PIN"
 
+#, c-format
 msgid "access to admin commands is not configured\n"
 msgstr "管理者指令存取權限尚未組態\n"
 
@@ -6094,24 +6365,31 @@ msgstr "||請輸入管理者 PIN 及新的管理者 PIN"
 msgid "||Please enter the PIN and New PIN"
 msgstr "||請輸入個人識別碼及新的個人識別碼 (PIN)"
 
+#, c-format
 msgid "error reading application data\n"
 msgstr "讀取應用程式資料時出錯\n"
 
+#, c-format
 msgid "error reading fingerprint DO\n"
 msgstr "讀取指紋 DO 時出錯\n"
 
+#, c-format
 msgid "key already exists\n"
 msgstr "金鑰已存在\n"
 
+#, c-format
 msgid "existing key will be replaced\n"
 msgstr "既有的金鑰將被取代\n"
 
+#, c-format
 msgid "generating new key\n"
 msgstr "正在產生新的金鑰\n"
 
+#, c-format
 msgid "writing new key\n"
 msgstr "正在寫入新的金鑰\n"
 
+#, c-format
 msgid "creation timestamp missing\n"
 msgstr "缺漏創生時間戳印\n"
 
@@ -6123,14 +6401,16 @@ msgstr "RSA 質數 %s 缺漏或者並非 %d 位元大\n"
 msgid "failed to store the key: %s\n"
 msgstr "存放金鑰失敗: %s\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "unsupported inquiry '%s'\n"
 msgid "unsupported curve\n"
 msgstr "未支援的查詢 '%s'\n"
 
+#, c-format
 msgid "please wait while key is being generated ...\n"
 msgstr "正在產生金鑰中, 請稍候 ...\n"
 
+#, c-format
 msgid "generating key failed\n"
 msgstr "產生金鑰時失敗\n"
 
@@ -6140,9 +6420,11 @@ msgid "key generation completed (%d second)\n"
 msgid_plural "key generation completed (%d seconds)\n"
 msgstr[0] "金鑰產生完畢 (%d 秒)\n"
 
+#, c-format
 msgid "invalid structure of OpenPGP card (DO 0x93)\n"
 msgstr "無效的 OpenPGP 卡片結構 (DO 0x93)\n"
 
+#, c-format
 msgid "fingerprint on card does not match requested one\n"
 msgstr "卡片上的指紋與所要求的那個並不吻合\n"
 
@@ -6154,6 +6436,7 @@ msgstr "卡片不支援 %s 摘要演算法\n"
 msgid "signatures created so far: %lu\n"
 msgstr "目前建立的簽章: %lu\n"
 
+#, c-format
 msgid ""
 "verification of Admin PIN is currently prohibited through this command\n"
 msgstr "目前在此指令中的管理者 PIN 驗證被禁止了\n"
@@ -6201,6 +6484,9 @@ msgstr "不要使用讀卡機鍵盤"
 msgid "deny the use of admin card commands"
 msgstr "禁用管理者卡片指令"
 
+msgid "|LIST|Change the application priority to LIST"
+msgstr ""
+
 msgid "use variable length input for pinpad"
 msgstr "輸入 PIN 時在輸入區顯示成變動長度"
 
@@ -6214,6 +6500,7 @@ msgstr ""
 "語法: scdaemon [選項] [指令 [引數]]\n"
 "@GNUPG@ 智慧卡服務\n"
 
+#, c-format
 msgid "please use the option '--daemon' to run the program in the background\n"
 msgstr "請使用 '--daemon' 選項來將此程式執行於背景\n"
 
@@ -6225,7 +6512,7 @@ msgstr "用於 fd %d 的經手程式已啟動\n"
 msgid "handler for fd %d terminated\n"
 msgstr "用於 fd %d 的經手程式已終止\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "no gpg-agent running in this session\n"
 msgid "no dirmngr running in this session\n"
 msgstr "在此階段中沒有執行中的 gpg-agent\n"
@@ -6244,6 +6531,7 @@ msgstr "shell"
 msgid "critical certificate extension %s is not supported"
 msgstr "未支援關鍵憑證擴充欄位 %s"
 
+#, c-format
 msgid "issuer certificate is not marked as a CA"
 msgstr "發行者憑證並未標記為 CA"
 
@@ -6254,12 +6542,15 @@ msgstr "關鍵已標記原則沒有已組態的原則"
 msgid "failed to open '%s': %s\n"
 msgstr "開啟 '%s' 失敗: %s\n"
 
+#, c-format
 msgid "Note: non-critical certificate policy not allowed"
 msgstr "請注意: 不允許非關鍵的憑證原則"
 
+#, c-format
 msgid "certificate policy not allowed"
 msgstr "未允許憑證原則"
 
+#, c-format
 msgid "looking up issuer at external location\n"
 msgstr "從外部位置尋找發行者\n"
 
@@ -6267,6 +6558,7 @@ msgstr "從外部位置尋找發行者\n"
 msgid "number of issuers matching: %d\n"
 msgstr "吻合的發行者數量: %d\n"
 
+#, c-format
 msgid "looking up issuer from the Dirmngr cache\n"
 msgstr "從 Dirmngr 快取尋找發行者\n"
 
@@ -6278,6 +6570,7 @@ msgstr "吻合的憑證數量: %d\n"
 msgid "dirmngr cache-only key lookup failed: %s\n"
 msgstr "尋找限於 dirmngr 快取的金鑰時失敗: %s\n"
 
+#, c-format
 msgid "failed to allocate keyDB handle\n"
 msgstr "配置 keyDB 代號失敗\n"
 
@@ -6287,6 +6580,7 @@ msgstr "憑證已撤銷"
 msgid "the status of the certificate is unknown"
 msgstr "憑證的狀態未知"
 
+#, c-format
 msgid "please make sure that the \"dirmngr\" is properly installed\n"
 msgstr "請確認 \"dirmngr\" 已安裝妥善\n"
 
@@ -6298,6 +6592,7 @@ msgstr "檢查 CRL 時失敗: %s"
 msgid "certificate with invalid validity: %s"
 msgstr "有效性無效的憑證: %s"
 
+#, c-format
 msgid "certificate not yet valid"
 msgstr "憑證尚未生效"
 
@@ -6307,6 +6602,7 @@ msgstr "根憑證尚未生效"
 msgid "intermediate certificate not yet valid"
 msgstr "媒介憑證尚未生效"
 
+#, c-format
 msgid "certificate has expired"
 msgstr "憑證已過期"
 
@@ -6332,15 +6628,19 @@ msgstr "憑證並非在發行者生存時間內所造"
 msgid "intermediate certificate not created during lifetime of issuer"
 msgstr "媒介憑證並非在發行者生存時間內所造"
 
+#, c-format
 msgid "  (  signature created at "
 msgstr "  (            簽章建立於 "
 
+#, c-format
 msgid "  (certificate created at "
 msgstr "  (            憑證建立於 "
 
+#, c-format
 msgid "  (certificate valid from "
 msgstr "  (憑證有效自 "
 
+#, c-format
 msgid "  (     issuer valid from "
 msgstr "  (        發行者有效自 "
 
@@ -6348,12 +6648,15 @@ msgstr "  (        發行者有效自 "
 msgid "fingerprint=%s\n"
 msgstr "指紋=%s\n"
 
+#, c-format
 msgid "root certificate has now been marked as trusted\n"
 msgstr "根憑證現在已標記為已信任\n"
 
+#, c-format
 msgid "interactive marking as trusted not enabled in gpg-agent\n"
 msgstr "在 gpg-agent 中未啟用互動式標記為已信任\n"
 
+#, c-format
 msgid "interactive marking as trusted disabled for this session\n"
 msgstr "互動式標記為已信任在此作業階段中已停用\n"
 
@@ -6366,6 +6669,7 @@ msgstr "憑證中找不到發行者"
 msgid "self-signed certificate has a BAD signature"
 msgstr "自簽憑證有 不良 簽章"
 
+#, c-format
 msgid "root certificate is not marked trusted"
 msgstr "根憑證未標記為已信任"
 
@@ -6373,12 +6677,15 @@ msgstr "根憑證未標記為已信任"
 msgid "checking the trust list failed: %s\n"
 msgstr "檢查信任清單時失敗: %s\n"
 
+#, c-format
 msgid "certificate chain too long\n"
 msgstr "憑證鏈太長\n"
 
+#, c-format
 msgid "issuer certificate not found"
 msgstr "找不到發行者憑證"
 
+#, c-format
 msgid "certificate has a BAD signature"
 msgstr "憑證有 不良 簽章"
 
@@ -6389,12 +6696,15 @@ msgstr "找到了另一個可能吻合的 CA 憑證 - 正再試一次"
 msgid "certificate chain longer than allowed by CA (%d)"
 msgstr "憑證鏈比 CA 所允許的 (%d) 還長"
 
+#, c-format
 msgid "certificate is good\n"
 msgstr "憑證完好\n"
 
+#, c-format
 msgid "intermediate certificate is good\n"
 msgstr "媒介憑證良好\n"
 
+#, c-format
 msgid "root certificate is good\n"
 msgstr "根憑證完好\n"
 
@@ -6409,6 +6719,7 @@ msgstr "已使用的驗證模型: %s"
 msgid "a %u bit hash is not valid for a %u bit %s key\n"
 msgstr "%u 位元的雜湊對 %u 位元的 %s 金鑰來說是無效的\n"
 
+#, c-format
 msgid "(this is the MD2 algorithm)\n"
 msgstr "(這是 MD2 演算法)\n"
 
@@ -6440,6 +6751,7 @@ msgstr ""
 "S/N %s, ID 0x%08lX,\n"
 "建立於 %s, 於 %s 到期.\n"
 
+#, c-format
 msgid "no key usage specified - assuming all usages\n"
 msgstr "沒有指定的金鑰用途 - 假設為所有的用途\n"
 
@@ -6447,23 +6759,34 @@ msgstr "沒有指定的金鑰用途 - 假設為所有的用途\n"
 msgid "error getting key usage information: %s\n"
 msgstr "取得金鑰用途資訊時出錯: %s\n"
 
+#, c-format
 msgid "certificate should not have been used for certification\n"
 msgstr "憑證應該還未被用於憑證\n"
 
+#, c-format
 msgid "certificate should not have been used for OCSP response signing\n"
 msgstr "憑證應該還未被用於 OCSP 回應簽署\n"
 
+#, c-format
 msgid "certificate should not have been used for encryption\n"
 msgstr "憑證應該還未被用於加密\n"
 
+#, c-format
 msgid "certificate should not have been used for signing\n"
 msgstr "憑證應該還未被用於簽署\n"
 
+#, c-format
 msgid "certificate is not usable for encryption\n"
 msgstr "憑證無法用於加密\n"
 
+#, c-format
 msgid "certificate is not usable for signing\n"
 msgstr "憑證無法用於簽署\n"
+
+#, fuzzy, c-format
+#| msgid "lookup a certificate"
+msgid "looking for another certificate\n"
+msgstr "查找憑證"
 
 #, c-format
 msgid "line %d: invalid algorithm\n"
@@ -6551,17 +6874,6 @@ msgid "   (%d) Existing key from card\n"
 msgstr "   (%d) 卡片上現存的金鑰\n"
 
 #, c-format
-msgid "error reading the card: %s\n"
-msgstr "讀取卡片時出錯: %s\n"
-
-#, c-format
-msgid "Serial number of the card: %s\n"
-msgstr "卡片序號: %s\n"
-
-msgid "Available keys:\n"
-msgstr "可用金鑰:\n"
-
-#, c-format
 msgid "Possible actions for a %s key:\n"
 msgstr "%s 金鑰可能的動作:\n"
 
@@ -6635,12 +6947,15 @@ msgstr "準備妥當.\n"
 msgid "Ready.  You should now send this request to your CA.\n"
 msgstr "準備好了.  你現在就該把此請求送到你的 CA.\n"
 
+#, c-format
 msgid "resource problem: out of core\n"
 msgstr "資源問題: 超出核心\n"
 
+#, c-format
 msgid "(this is the RC2 algorithm)\n"
 msgstr "(這是 RC2 演算法)\n"
 
+#, c-format
 msgid "(this does not seem to be an encrypted message)\n"
 msgstr "(這看起來不像是個加密過的訊息)\n"
 
@@ -6664,6 +6979,7 @@ msgstr "憑證 '%s' 已刪除\n"
 msgid "deleting certificate \"%s\" failed: %s\n"
 msgstr "刪除憑證 \"%s\" 時失敗: %s\n"
 
+#, c-format
 msgid "no valid recipients given\n"
 msgstr "沒有給定有效的收件者\n"
 
@@ -6780,9 +7096,14 @@ msgid "%s:%u: password given without user\n"
 msgstr "%s:%u: 給定的密碼沒有使用者\n"
 
 #, c-format
+msgid "%s:%u: ignoring unknown flag '%s'\n"
+msgstr ""
+
+#, c-format
 msgid "%s:%u: skipping this line\n"
 msgstr "%s:%u: 正在跳過這一列\n"
 
+#, c-format
 msgid "could not parse keyserver\n"
 msgstr "無法剖析金鑰伺服器\n"
 
@@ -6794,6 +7115,7 @@ msgstr "正在匯入通用憑證 '%s'\n"
 msgid "can't sign using '%s': %s\n"
 msgstr "無法用 '%s' 來簽署: %s\n"
 
+#, c-format
 msgid "invalid command (there is no implicit command)\n"
 msgstr "無效的指令 (沒有這樣的指令)\n"
 
@@ -6801,9 +7123,11 @@ msgstr "無效的指令 (沒有這樣的指令)\n"
 msgid "total number processed: %lu\n"
 msgstr "處理總量: %lu\n"
 
+#, c-format
 msgid "error storing certificate\n"
 msgstr "存放憑證時出錯\n"
 
+#, c-format
 msgid "basic certificate checks failed - not imported\n"
 msgstr "基本的憑證檢查失敗了 - 未匯入\n"
 
@@ -6819,6 +7143,7 @@ msgstr "匯入憑證時出錯: %s\n"
 msgid "error reading input: %s\n"
 msgstr "讀取輸入時出錯: %s\n"
 
+#, c-format
 msgid "failed to get the fingerprint\n"
 msgstr "取得指紋失敗\n"
 
@@ -6845,6 +7170,7 @@ msgstr "存放旗標時出錯: %s\n"
 msgid "Error - "
 msgstr "錯誤 - "
 
+#, c-format
 msgid "GPG_TTY has not been set - using maybe bogus default\n"
 msgstr "尚未設定 GPG_TTY - 使用可能是偽造的預設值\n"
 
@@ -6871,6 +7197,7 @@ msgstr ""
 "\n"
 "%s%s請問你是否真的確定要這樣做了?"
 
+#, c-format
 msgid ""
 "Note, that this software is not officially approved to create or verify such "
 "signatures.\n"
@@ -6898,9 +7225,11 @@ msgstr "簽署者 %d 所用的雜湊演算法: %s (%s)\n"
 msgid "checking for qualified certificate failed: %s\n"
 msgstr "檢查合格憑證時失敗: %s\n"
 
+#, c-format
 msgid "Signature made "
 msgstr "簽章建立於 "
 
+#, c-format
 msgid "[date not given]"
 msgstr "[   未給定日期  ]"
 
@@ -6908,16 +7237,20 @@ msgstr "[   未給定日期  ]"
 msgid " using certificate ID 0x%08lX\n"
 msgstr " 以憑證 ID 0x%08lX\n"
 
+#, c-format
 msgid ""
 "invalid signature: message digest attribute does not match computed one\n"
 msgstr "無效的簽章: 訊息摘要屬性與計算而得的不吻合\n"
 
+#, c-format
 msgid "Good signature from"
 msgstr "完好的簽章來自於"
 
+#, c-format
 msgid "                aka"
 msgstr "                亦即"
 
+#, c-format
 msgid "This is a qualified signature\n"
 msgstr "這是一份合格簽章\n"
 
@@ -6984,9 +7317,11 @@ msgstr "    執行時期快取的憑證: %u\n"
 msgid "           trusted certificates: %u (%u,%u,%u,%u)\n"
 msgstr "    執行時期快取的憑證: %u\n"
 
+#, c-format
 msgid "certificate already cached\n"
 msgstr "憑證早已快取\n"
 
+#, c-format
 msgid "certificate cached\n"
 msgstr "憑證已快取\n"
 
@@ -7006,6 +7341,7 @@ msgstr "以序號取得憑證時出錯: %s\n"
 msgid "error fetching certificate by subject: %s\n"
 msgstr "以主旨取得憑證時出錯: %s\n"
 
+#, c-format
 msgid "no issuer found in certificate\n"
 msgstr "憑證中找不到發行者\n"
 
@@ -7069,9 +7405,11 @@ msgstr "重新開啟快取目錄檔案 '%s' 失敗: %s\n"
 msgid "first record of '%s' is not the version\n"
 msgstr "第一個 '%s' 記錄並非版本\n"
 
+#, c-format
 msgid "old version of cache directory - cleaning up\n"
 msgstr "舊版的快取目錄 - 正在清理\n"
 
+#, c-format
 msgid "old version of cache directory - giving up\n"
 msgstr "舊版的快取目錄 - 正在放棄\n"
 
@@ -7107,9 +7445,11 @@ msgstr "'%s' 第 %u 列有無效的時間戳印\n"
 msgid "WARNING: invalid cache file hash in '%s' line %u\n"
 msgstr "警告: '%s' 第 %u 列有無效的快取檔案雜湊\n"
 
+#, c-format
 msgid "detected errors in cache dir file\n"
 msgstr "已於快取 dir 檔案內偵測到錯誤\n"
 
+#, c-format
 msgid "please check the reason and manually delete that file\n"
 msgstr "請檢查其原因並手動刪除該檔案\n"
 
@@ -7141,6 +7481,7 @@ msgstr "計算 '%s' 的雜湊時出錯: %s\n"
 msgid "invalid formatted checksum for '%s'\n"
 msgstr "無效的 '%s' 格式化加總檢核碼\n"
 
+#, c-format
 msgid "too many open cache files; can't open anymore\n"
 msgstr "太多開啟的快取檔案; 無法再開啟更多檔案了\n"
 
@@ -7156,9 +7497,11 @@ msgstr "開啟快取檔案 '%s' 時出錯: %s\n"
 msgid "error initializing cache file '%s' for reading: %s\n"
 msgstr "初始化快取檔案 '%s' 用於讀取時出錯: %s\n"
 
+#, c-format
 msgid "calling unlock_db_file on a closed file\n"
 msgstr "正在對已關閉的檔案叫用 unlock_db_file\n"
 
+#, c-format
 msgid "calling unlock_db_file on an unlocked file\n"
 msgstr "正在對已解除鎖定的檔案叫用 unlock_db_file\n"
 
@@ -7192,6 +7535,7 @@ msgstr "發行者 ID %s 的可用 CRL 無法使用\n"
 msgid "cached CRL for issuer id %s tampered; we need to update\n"
 msgstr "發行者 ID %s 的快取 CRL 已遭竄改; 我們需要更新\n"
 
+#, c-format
 msgid "WARNING: invalid cache record length for S/N "
 msgstr "警告: 快取記錄長度無效, S/N"
 
@@ -7219,6 +7563,7 @@ msgstr "未知的雜湊演算法 '%s'\n"
 msgid "gcry_md_open for algorithm %d failed: %s\n"
 msgstr "演算法 %d 的 gcry_md_open 失敗: %s\n"
 
+#, c-format
 msgid "got an invalid S-expression from libksba\n"
 msgstr "從 libksba 得到無效的 S-表示式\n"
 
@@ -7242,6 +7587,7 @@ msgstr "取得 CRL 更新時間時出錯: %s\n"
 msgid "update times of this CRL: this=%s next=%s\n"
 msgstr "此 CRL 的更新時間: 本次=%s 下次=%s\n"
 
+#, c-format
 msgid "nextUpdate not given; assuming a validity period of one day\n"
 msgstr "無給定 nextUpdate; 先假設有效期是一天\n"
 
@@ -7257,6 +7603,7 @@ msgstr "安插項目至暫存快取檔案時出錯: %s\n"
 msgid "no CRL issuer found in CRL: %s\n"
 msgstr "CRL 中找不到 CRL 發行者: %s\n"
 
+#, c-format
 msgid "locating CRL issuer certificate by authorityKeyIdentifier\n"
 msgstr "正在以 authorityKeyIdentifier 找出 CRL 發行者憑證位置\n"
 
@@ -7324,6 +7671,7 @@ msgstr "建立快取檔案 '%s' 時出錯\n"
 msgid "problem renaming '%s' to '%s': %s\n"
 msgstr "把 '%s' 重新新命成 '%s' 時發生問題: %s\n"
 
+#, c-format
 msgid ""
 "updating the DIR file failed - cache entry will get lost with the next "
 "program start\n"
@@ -7348,6 +7696,7 @@ msgstr " 錯誤: 將不採用此 CRL\n"
 msgid " ERROR: This cached CRL may have been tampered with!\n"
 msgstr " 錯誤: 這個快取中的 CRL 可能已遭竄改!\n"
 
+#, c-format
 msgid " WARNING: invalid cache record length\n"
 msgstr " 警告: 無效的快取記錄長度\n"
 
@@ -7378,6 +7727,7 @@ msgstr "經由 DP 的 crl_cache_insert 失敗: %s\n"
 msgid "crl_cache_insert via issuer failed: %s\n"
 msgstr "經由發行者的 crl_cache_insert 失敗: %s\n"
 
+#, c-format
 msgid "reader to file mapping table full - waiting\n"
 msgstr "讀取程式至檔案映射表已滿 - 正在等待\n"
 
@@ -7393,7 +7743,7 @@ msgstr "取回 '%s' 時出錯: %s\n"
 msgid "error initializing reader object: %s\n"
 msgstr "啟始讀取程式物件時出錯: %s\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "CRL access not possible due to disabled %s\n"
 msgid "CRL access not possible due to Tor mode\n"
 msgstr "不可能存取 CRL 因已停用 %s\n"
@@ -7457,6 +7807,7 @@ msgstr "從標準輸入讀取憑證時出錯: %s\n"
 msgid "error reading certificate from '%s': %s\n"
 msgstr "從 '%s' 讀取憑證時出錯: %s\n"
 
+#, c-format
 msgid "certificate too large to make any sense\n"
 msgstr "憑證大到全然不合理的境界\n"
 
@@ -7472,6 +7823,7 @@ msgstr "查找失敗: %s\n"
 msgid "loading CRL '%s' failed: %s\n"
 msgstr "載入 CRL '%s' 時失敗: %s\n"
 
+#, c-format
 msgid "a dirmngr daemon is up and running\n"
 msgstr "有個 dirmngr 服務已啟動並正在執行中\n"
 
@@ -7479,9 +7831,11 @@ msgstr "有個 dirmngr 服務已啟動並正在執行中\n"
 msgid "validation of certificate failed: %s\n"
 msgstr "憑證之驗證失敗: %s\n"
 
+#, c-format
 msgid "certificate is valid\n"
 msgstr "憑證有效\n"
 
+#, c-format
 msgid "certificate has been revoked\n"
 msgstr "憑證已遭撤銷\n"
 
@@ -7501,6 +7855,7 @@ msgstr "寫入 base64 編碼時出錯: %s\n"
 msgid "unsupported inquiry '%s'\n"
 msgstr "未支援的查詢 '%s'\n"
 
+#, c-format
 msgid "absolute file name expected\n"
 msgstr "應該要有絕對檔名\n"
 
@@ -7612,6 +7967,7 @@ msgstr "有效的除錯等級為: %s\n"
 msgid "usage: %s [options] "
 msgstr "用法: %s [選項] "
 
+#, c-format
 msgid "colons are not allowed in the socket name\n"
 msgstr "socket 名稱內不允許使用冒號\n"
 
@@ -7639,12 +7995,15 @@ msgstr "%s:%u: 讀取錯誤: %s\n"
 msgid "%s:%u: garbage at end of line ignored\n"
 msgstr "%s:%u: 列尾的垃圾已忽略\n"
 
+#, c-format
 msgid "SIGHUP received - re-reading configuration and flushing caches\n"
 msgstr "收到 SIGHUP - 正在重新讀取組態並清除快取\n"
 
+#, c-format
 msgid "SIGUSR2 received - no action defined\n"
 msgstr "收到 SIGUSR2 - 無定義行動\n"
 
+#, c-format
 msgid "SIGTERM received - shutting down ...\n"
 msgstr "收到 SIGTERM - 正在關閉 ...\n"
 
@@ -7652,9 +8011,11 @@ msgstr "收到 SIGTERM - 正在關閉 ...\n"
 msgid "SIGTERM received - still %d active connections\n"
 msgstr "收到 SIGTERM - 還有 %d 個使用中的連線\n"
 
+#, c-format
 msgid "shutdown forced\n"
 msgstr "已強迫關閉\n"
 
+#, c-format
 msgid "SIGINT received - immediate shutdown\n"
 msgstr "收到 SIGINT - 立即關閉\n"
 
@@ -7667,6 +8028,9 @@ msgstr "以記錄導向格式傳回所有數值"
 
 msgid "|NAME|ignore host part and connect through NAME"
 msgstr "|名稱|忽略主機的部份並改以指定名稱連線"
+
+msgid "force a TLS connection"
+msgstr ""
 
 msgid "|NAME|connect to host NAME"
 msgstr "|名稱|連線至位於指定名稱的主機"
@@ -7768,11 +8132,26 @@ msgstr "'%s' 中沒有主機名稱\n"
 msgid "no attribute given for query '%s'\n"
 msgstr "查詢 '%s' 無給定屬性\n"
 
+#, c-format
 msgid "WARNING: using first attribute only\n"
 msgstr "警告: 僅使用第一個屬性\n"
 
 #, c-format
 msgid "LDAP init to '%s:%d' failed: %s\n"
+msgstr "LDAP 初始至 '%s:%d' 失敗: %s\n"
+
+#, c-format
+msgid "error allocating memory: %s\n"
+msgstr "配置記憶體時出錯: %s\n"
+
+#, fuzzy, c-format
+#| msgid "LDAP init to '%s:%d' failed: %s\n"
+msgid "LDAP init to '%s' failed: %s\n"
+msgstr "LDAP 初始至 '%s:%d' 失敗: %s\n"
+
+#, fuzzy, c-format
+#| msgid "LDAP init to '%s:%d' failed: %s\n"
+msgid "LDAP init to '%s' done\n"
 msgstr "LDAP 初始至 '%s:%d' 失敗: %s\n"
 
 #, c-format
@@ -7796,8 +8175,17 @@ msgid "error accessing '%s': http status %u\n"
 msgstr "存取 '%s' 時出錯: http 狀態 %u\n"
 
 #, c-format
-msgid "error allocating memory: %s\n"
-msgstr "配置記憶體時出錯: %s\n"
+msgid "URL '%s' redirected to '%s' (%u)\n"
+msgstr "網址 '%s' 重新轉向至 '%s' (%u)\n"
+
+#, c-format
+msgid "too many redirections\n"
+msgstr "太多重新導向\n"
+
+#, fuzzy, c-format
+#| msgid "writing to '%s'\n"
+msgid "redirection changed to '%s'\n"
+msgstr "正在寫入 '%s'\n"
 
 #, c-format
 msgid "error printing log line: %s\n"
@@ -7843,9 +8231,11 @@ msgstr "動態記憶體配置失敗: %s\n"
 msgid "start_cert_fetch: invalid pattern '%s'\n"
 msgstr "start_cert_fetch: 無效的模式 '%s'\n"
 
+#, c-format
 msgid "ldap_search hit the size limit of the server\n"
 msgstr "ldap_search 達到伺服器的尺寸限制\n"
 
+#, c-format
 msgid "invalid canonical S-expression found\n"
 msgstr "發現無效的標準型 S-表示式\n"
 
@@ -7857,6 +8247,7 @@ msgstr "gcry_md_open 失敗: %s\n"
 msgid "oops: ksba_cert_hash failed: %s\n"
 msgstr "糟了: ksba_cert_hash 失敗: %s\n"
 
+#, c-format
 msgid "bad URL encoding detected\n"
 msgstr "偵測到不良的網址編碼\n"
 
@@ -7868,11 +8259,12 @@ msgstr "從回應程式讀取時出錯: %s\n"
 msgid "response from server too large; limit is %d bytes\n"
 msgstr "來自伺服器的回應太大; 上限是 %d 位元組\n"
 
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "OCSP request not possible due to disabled HTTP\n"
 msgid "OCSP request not possible due to Tor mode\n"
 msgstr "因為已經停用 HTTP 而不可能有 OCSP 請求\n"
 
+#, c-format
 msgid "OCSP request not possible due to disabled HTTP\n"
 msgstr "因為已經停用 HTTP 而不可能有 OCSP 請求\n"
 
@@ -7893,13 +8285,6 @@ msgid "error reading HTTP response for '%s': %s\n"
 msgstr "讀取 '%s' HTTP 回應時出錯: %s\n"
 
 #, c-format
-msgid "URL '%s' redirected to '%s' (%u)\n"
-msgstr "網址 '%s' 重新轉向至 '%s' (%u)\n"
-
-msgid "too many redirections\n"
-msgstr "太多重新導向\n"
-
-#, c-format
 msgid "error parsing OCSP response for '%s': %s\n"
 msgstr "剖析 '%s' OCSP 回應時出錯: %s\n"
 
@@ -7908,14 +8293,16 @@ msgid "OCSP responder at '%s' status: %s\n"
 msgstr "位於 '%s' 的 OSCP 回應程式狀態: %s\n"
 
 #, c-format
+msgid "failed to establish a hashing context for OCSP: %s\n"
+msgstr "對 OCSP 建立雜湊脈絡失敗: %s\n"
+
+#, c-format
 msgid "hashing the OCSP response for '%s' failed: %s\n"
 msgstr "計算 '%s' OSCP 回應雜湊時失敗: %s\n"
 
+#, c-format
 msgid "not signed by a default OCSP signer's certificate"
 msgstr "並未由預設 OCSP 簽署者的憑證所簽署"
-
-msgid "only SHA-1 is supported for OCSP responses\n"
-msgstr "OCSP 回應僅支援 SHA-1\n"
 
 #, c-format
 msgid "allocating list item failed: %s\n"
@@ -7925,6 +8312,7 @@ msgstr "配置清單項目時失敗: %s\n"
 msgid "error getting responder ID: %s\n"
 msgstr "取得回應程式 ID 時出錯: %s\n"
 
+#, c-format
 msgid "no suitable certificate found to verify the OCSP response\n"
 msgstr "找不到適合用來驗證 OCSP 回應的憑證\n"
 
@@ -7932,9 +8320,11 @@ msgstr "找不到適合用來驗證 OCSP 回應的憑證\n"
 msgid "issuer certificate not found: %s\n"
 msgstr "找不到發行者憑證: %s\n"
 
+#, c-format
 msgid "caller did not return the target certificate\n"
 msgstr "叫用者未傳為目標憑證\n"
 
+#, c-format
 msgid "caller did not return the issuing certificate\n"
 msgstr "叫用者未傳回發行的憑證\n"
 
@@ -7946,9 +8336,11 @@ msgstr "配置 OCSP 脈絡失敗: %s\n"
 msgid "can't get authorityInfoAccess: %s\n"
 msgstr "無法取得 authorityInfoAccess: %s\n"
 
+#, c-format
 msgid "no default OCSP responder defined\n"
 msgstr "無定義預設 OCSP 回應程式\n"
 
+#, c-format
 msgid "no default OCSP signer defined\n"
 msgstr "未定義預設的 OCSP 簽署程式\n"
 
@@ -7959,10 +8351,6 @@ msgstr "正在使用預設的 OCSP 回應程式 '%s'\n"
 #, c-format
 msgid "using OCSP responder '%s'\n"
 msgstr "正在使用 %s OCSP 回應程式\n"
-
-#, c-format
-msgid "failed to establish a hashing context for OCSP: %s\n"
-msgstr "對 OCSP 建立雜湊脈絡失敗: %s\n"
 
 #, c-format
 msgid "error getting OCSP status for target certificate: %s\n"
@@ -7979,12 +8367,15 @@ msgstr "良好"
 msgid "certificate has been revoked at: %s due to: %s\n"
 msgstr "憑證已撤銷於 %s 因: %s\n"
 
+#, c-format
 msgid "OCSP responder returned a status in the future\n"
 msgstr "OCSP 回應程式傳回未來的狀態\n"
 
+#, c-format
 msgid "OCSP responder returned a non-current status\n"
 msgstr "OCSP 回應程式傳回非當下的狀態\n"
 
+#, c-format
 msgid "OCSP responder returned an too old status\n"
 msgstr "OCSP 回應程式傳回老舊的狀態\n"
 
@@ -8046,9 +8437,11 @@ msgstr "Assuan 接受問題: %s\n"
 msgid "Assuan processing failed: %s\n"
 msgstr "Assuan 處理時失敗: %s\n"
 
+#, c-format
 msgid "accepting root CA not marked as a CA"
 msgstr "接受未標示為 CA 的根 CA"
 
+#, c-format
 msgid "CRL checking too deeply nested\n"
 msgstr "檢查 CRL 時遭遇太深層次的巢狀結構\n"
 
@@ -8058,6 +8451,7 @@ msgstr "不對此檢查 CRL:"
 msgid "checking CRL for"
 msgstr "檢查 CRL: "
 
+#, c-format
 msgid "selfsigned certificate has a BAD signature"
 msgstr "自簽憑證有 不良 簽章"
 
@@ -8065,9 +8459,11 @@ msgstr "自簽憑證有 不良 簽章"
 msgid "checking trustworthiness of root certificate failed: %s\n"
 msgstr "檢查根憑證可信度時失敗: %s\n"
 
+#, c-format
 msgid "certificate chain is good\n"
 msgstr "憑證鏈完好\n"
 
+#, c-format
 msgid "certificate should not have been used for CRL signing\n"
 msgstr "憑證應該還未被用於 CRL 簽署\n"
 
@@ -8081,6 +8477,11 @@ msgid "decode received data lines"
 msgstr "對已收到的資料列解碼"
 
 msgid "connect to the dirmngr"
+msgstr "連線至 dirmngr"
+
+#, fuzzy
+#| msgid "connect to the dirmngr"
+msgid "connect to the keyboxd"
 msgstr "連線至 dirmngr"
 
 msgid "|NAME|connect to Assuan socket NAME"
@@ -8123,9 +8524,11 @@ msgstr "\"%s\" 選項因為 \"%s\" 而被忽略了\n"
 msgid "receiving line failed: %s\n"
 msgstr "接收列時失敗: %s\n"
 
+#, c-format
 msgid "line too long - skipped\n"
 msgstr "列太長 - 已跳過\n"
 
+#, c-format
 msgid "line shortened due to embedded Nul character\n"
 msgstr "列因嵌入的 Nul 字符而縮短了\n"
 
@@ -8136,6 +8539,11 @@ msgstr "未知的指令 '%s'\n"
 #, c-format
 msgid "sending line failed: %s\n"
 msgstr "送出列時失敗: %s\n"
+
+#, fuzzy, c-format
+#| msgid "no gpg-agent running in this session\n"
+msgid "no keybox daemon running in this session\n"
+msgstr "在此階段中沒有執行中的 gpg-agent\n"
 
 #, c-format
 msgid "error sending standard options: %s\n"
@@ -8272,6 +8680,16 @@ msgstr "個人識別碼及密語項目"
 
 msgid "Component not suitable for launching"
 msgstr "元件不適合啟動"
+
+#, fuzzy, c-format
+#| msgid "External verification of component %s failed"
+msgid "Configuration file of component %s is broken\n"
+msgstr "元件 %s 的外部驗證失敗"
+
+#, fuzzy, c-format
+#| msgid "Please use the command \"toggle\" first.\n"
+msgid "Note: Use the command \"%s%s\" to get details.\n"
+msgstr "請先使用 \"toggle\" 指令.\n"
 
 #, c-format
 msgid "External verification of component %s failed"
@@ -8428,15 +8846,19 @@ msgstr "讀取 %s 時出錯: %s\n"
 msgid "error closing %s: %s\n"
 msgstr "關閉 %s 時出錯: %s\n"
 
+#, c-format
 msgid "no --program option provided\n"
 msgstr "沒有提供 --program 選項\n"
 
+#, c-format
 msgid "only --decrypt and --encrypt are supported\n"
 msgstr "祇支援 --decrypt 和 --encrypt\n"
 
+#, c-format
 msgid "no --keyfile option provided\n"
 msgstr "沒有提供 --keyfile 選項\n"
 
+#, c-format
 msgid "cannot allocate args vector\n"
 msgstr "無法配置引數向量\n"
 
@@ -8488,6 +8910,7 @@ msgstr "無法配置檔外字串: %s\n"
 msgid "either %s or %s must be given\n"
 msgstr "一定要給定 %s 或 %s 其中之一\n"
 
+#, c-format
 msgid "no class provided\n"
 msgstr "沒有提供類別\n"
 
@@ -8504,6 +8927,131 @@ msgid ""
 msgstr ""
 "語法: gpg-check-pattern [選項] 樣式檔案\n"
 "用樣式檔案來檢查由標準輸入給定的密語\n"
+
+#, fuzzy, c-format
+#| msgid "OpenPGP card no. %s detected\n"
+msgid "%s card no. %s detected\n"
+msgstr "偵測到 OpenPGP 卡片編號 %s\n"
+
+#, fuzzy
+#| msgid "add a certificate to the cache"
+msgid "authenticate to the card"
+msgstr "加入憑證至快取"
+
+msgid "send a reset to the card daemon"
+msgstr ""
+
+#, fuzzy
+#| msgid "|NAME|use user NAME for authentication"
+msgid "setup KDF for PIN authentication"
+msgstr "|名字|使用指定名字做為認證用的使用者名稱"
+
+msgid "change a private data object"
+msgstr ""
+
+#, fuzzy
+#| msgid "add a certificate to the cache"
+msgid "read a certificate from a data object"
+msgstr "加入憑證至快取"
+
+#, fuzzy
+#| msgid "add a certificate to the cache"
+msgid "store a certificate to a data object"
+msgstr "加入憑證至快取"
+
+msgid "store a private key to a data object"
+msgstr ""
+
+msgid "Yubikey management commands"
+msgstr ""
+
+#~ msgid "Please remove the current card and insert the one with serial number"
+#~ msgstr "請移除現用中的卡片並插入下列序號的卡片:"
+
+#, c-format
+#~ msgid "no running gpg-agent - starting '%s'\n"
+#~ msgstr "沒有執行中的 gpg-agent - 正在啟動 '%s'\n"
+
+#~ msgid "male"
+#~ msgstr "男性"
+
+#~ msgid "female"
+#~ msgstr "女性"
+
+#~ msgid "unspecified"
+#~ msgstr "未特定"
+
+#~ msgid "Sex ((M)ale, (F)emale or space): "
+#~ msgstr "性別 ((M)男性, (F)女性或留空): "
+
+#, c-format
+#~ msgid "unable to execute program '%s': %s\n"
+#~ msgstr "無法執行程式 '%s': %s\n"
+
+#~ msgid "unable to execute external program\n"
+#~ msgstr "無法執行外部程式\n"
+
+#, c-format
+#~ msgid "unable to read external program response: %s\n"
+#~ msgstr "無法讀取外部程式回應: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error closing %s: %s\n"
+#~ msgid "error looking up: %s\n"
+#~ msgstr "關閉 %s 時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error creating keyring '%s': %s\n"
+#~ msgid "Warning: %s appears in the keyring %d times\n"
+#~ msgstr "建立鑰匙圈 '%s' 時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error opening '%s': %s\n"
+#~ msgid "error opening key DB: %s\n"
+#~ msgstr "開啟 '%s' 時出錯: %s\n"
+
+#~ msgid "no keyserver known (use option --keyserver)\n"
+#~ msgstr "沒有已知的金鑰伺服器 (使用 --keyserver 選項)\n"
+
+#, fuzzy, c-format
+#~| msgid "error creating temporary file: %s\n"
+#~ msgid "error creating 'ultimately_trusted_keys' TOFU table: %s\n"
+#~ msgstr "建立暫存檔時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error sending data: %s\n"
+#~ msgid "error creating 'encryptions' TOFU table: %s\n"
+#~ msgstr "送出資料時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error writing key: %s\n"
+#~ msgid "resetting keydb: %s\n"
+#~ msgstr "寫入金鑰時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "error setting OCSP target: %s\n"
+#~ msgid "error setting TOFU binding's policy to %s\n"
+#~ msgstr "設定 OCSP 目標時出錯: %s\n"
+
+#, fuzzy, c-format
+#~| msgid "print message digests"
+#~ msgid "%s: Verified %ld~signature in the past %s."
+#~ msgid_plural "%s: Verified %ld~signatures in the past %s."
+#~ msgstr[0] "印出訊息摘要"
+
+#, fuzzy, c-format
+#~| msgid "print message digests"
+#~ msgid "Encrypted %ld~message in the past %s."
+#~ msgid_plural "Encrypted %ld~messages in the past %s."
+#~ msgstr[0] "印出訊息摘要"
+
+#, fuzzy, c-format
+#~| msgid "error writing public keyring '%s': %s\n"
+#~ msgid "error setting policy for key %s, user id \"%s\": %s"
+#~ msgstr "寫入公鑰鑰匙圈 '%s' 時出錯: %s\n"
+
+#~ msgid "only SHA-1 is supported for OCSP responses\n"
+#~ msgstr "OCSP 回應僅支援 SHA-1\n"
 
 #~ msgid "using \"http\" instead of \"https\"\n"
 #~ msgstr "正改以 \"http\" 代替 \"https\"\n"
